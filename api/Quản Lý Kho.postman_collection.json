@@ -1,0 +1,1352 @@
+{
+	"info": {
+		"_postman_id": "92cca7e9-f81b-4d36-81ed-97ca37a48868",
+		"name": "Quản Lý Kho",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Đăng ký tài khoản",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"employ\",\n\t\"password\": \"12345678\",\n\t\"confirmPassword\": \"12345678\",\n\t\"employeeId\": 3,\n\t\"roleId\": 2\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://cs-manage-store.herokuapp.com/api/auth/register",
+					"protocol": "http",
+					"host": [
+						"cs-manage-store",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"admin\",\n\t\"password\": \"12345678\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://cs-manage-store.herokuapp.com/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"cs-manage-store",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Refresh Token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7IlVzZXJJZCI6MSwiVXNlcm5hbWUiOiJhZG1pbiIsIk5oYW5WaWVuSWQiOjEsIk1hTmhhblZpZW4iOiJOVjAxIiwiVGVuTmhhblZpZW4iOiJIb8OgbmcgVsSDbiBUdXnhu4FuIiwiR2lvaVRpbmgiOmZhbHNlLCJOZ2F5U2luaCI6IjE5OTgtMDYtMTZUMDA6MDA6MDAuMDAwWiIsIkRpYUNoaSI6IlF14bqjbmcgTmluaCIsIlNEVCI6IjA5NjM1NjY3MDMiLCJDTU5EIjoiMTAxMjkxMjU3IiwiRW1haWwiOiJhNWxocC5zd2lmdEBnbWFpbC5jb20iLCJOZ2F5VmFvTGFtIjoiMjAyMC0wMy0xOFQwMDowMDowMC4wMDBaIiwiUm9sZU5hbWUiOiJBZG1pbiJ9LCJpYXQiOjE1ODY3OTY5NzMsImV4cCI6MTkwMjE1Njk3M30.X5nxakxWdxMGDeHSnB62wrfz-08OB0z6o1XvJ5NXevE\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://cs-manage-store.herokuapp.com/api/auth/refresh-token",
+					"protocol": "http",
+					"host": [
+						"cs-manage-store",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"auth",
+						"refresh-token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Đổi mật khẩu",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7IlVzZXJJZCI6MSwiVXNlcm5hbWUiOiJhZG1pbiIsIk5oYW5WaWVuSWQiOjEsIk1hTmhhblZpZW4iOiJOVjAxIiwiVGVuTmhhblZpZW4iOiJIb8OgbmcgVsSDbiBUdXnhu4FuIiwiR2lvaVRpbmgiOmZhbHNlLCJOZ2F5U2luaCI6IjE5OTgtMDYtMTZUMDA6MDA6MDAuMDAwWiIsIkRpYUNoaSI6IlF14bqjbmcgTmluaCIsIlNEVCI6IjA5NjM1NjY3MDMiLCJDTU5EIjoiMTAxMjkxMjU3IiwiRW1haWwiOiJhNWxocC5zd2lmdEBnbWFpbC5jb20iLCJOZ2F5VmFvTGFtIjoiMjAyMC0wMy0xOFQwMDowMDowMC4wMDBaIiwiUm9sZU5hbWUiOiJBZG1pbiJ9LCJpYXQiOjE1ODY3OTcyMzQsImV4cCI6MTU4NjgwMDgzNH0.eiVDXBDVKonJ8T_vl3wUE_XlbWJhVtavn8bfvsvuEJ4",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"oldPassword\": \"12345678\",\n\t\"newPassword\": \"123456\",\n\t\"confirmPassword\": \"123456\",\n\t\"employeeId\": 2\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://cs-manage-store.herokuapp.com/api/auth/change-password",
+					"protocol": "http",
+					"host": [
+						"cs-manage-store",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"auth",
+						"change-password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lấy tất cả nhân viên",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7IlVzZXJJZCI6MSwiVXNlcm5hbWUiOiJhZG1pbiIsIk5oYW5WaWVuSWQiOjEsIk1hTmhhblZpZW4iOiJOVjAxIiwiVGVuTmhhblZpZW4iOiJIb8OgbmcgVsSDbiBUdXnhu4FuIiwiR2lvaVRpbmgiOmZhbHNlLCJOZ2F5U2luaCI6IjE5OTgtMDYtMTZUMDA6MDA6MDAuMDAwWiIsIkRpYUNoaSI6IlF14bqjbmcgTmluaCIsIlNEVCI6IjA5NjM1NjY3MDMiLCJDTU5EIjoiMTAxMjkxMjU3IiwiRW1haWwiOiJhNWxocC5zd2lmdEBnbWFpbC5jb20iLCJOZ2F5VmFvTGFtIjoiMjAyMC0wMy0xOFQwMDowMDowMC4wMDBaIiwiUm9sZU5hbWUiOiJBZG1pbiJ9LCJpYXQiOjE1ODY4ODE1MzQsImV4cCI6MTYxODQxNzUzNH0.IkH3dOHnOA0FpoYCPrz0R-DL84fly3ssWuzMEggFxJs",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://cs-manage-store.herokuapp.com/api/employee/list-all-employee",
+					"protocol": "http",
+					"host": [
+						"cs-manage-store",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"employee",
+						"list-all-employee"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lấy danh sách nhân viên phân trang",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7IlVzZXJJZCI6MSwiVXNlcm5hbWUiOiJhZG1pbiIsIk5oYW5WaWVuSWQiOjEsIk1hTmhhblZpZW4iOiJOVjAxIiwiVGVuTmhhblZpZW4iOiJIb8OgbmcgVsSDbiBUdXnhu4FuIiwiR2lvaVRpbmgiOmZhbHNlLCJOZ2F5U2luaCI6IjE5OTgtMDYtMTZUMDA6MDA6MDAuMDAwWiIsIkRpYUNoaSI6IlF14bqjbmcgTmluaCIsIlNEVCI6IjA5NjM1NjY3MDMiLCJDTU5EIjoiMTAxMjkxMjU3IiwiRW1haWwiOiJhNWxocC5zd2lmdEBnbWFpbC5jb20iLCJOZ2F5VmFvTGFtIjoiMjAyMC0wMy0xOFQwMDowMDowMC4wMDBaIiwiUm9sZU5hbWUiOiJBZG1pbiJ9LCJpYXQiOjE1ODY3OTc5MDEsImV4cCI6MTU4NjgwMTUwMX0.O_hCjom4MQZK79FURbpP1KCExH-In5Er3aH9lKS8_Ms",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://cs-manage-store.herokuapp.com/api/employee/list-employee?page=1",
+					"protocol": "http",
+					"host": [
+						"cs-manage-store",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"employee",
+						"list-employee"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Thêm mới nhân viên",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7IlVzZXJJZCI6MSwiVXNlcm5hbWUiOiJhZG1pbiIsIk5oYW5WaWVuSWQiOjEsIk1hTmhhblZpZW4iOiJOVjAxIiwiVGVuTmhhblZpZW4iOiJIb8OgbmcgVsSDbiBUdXnhu4FuIiwiR2lvaVRpbmgiOmZhbHNlLCJOZ2F5U2luaCI6IjE5OTgtMDYtMTZUMDA6MDA6MDAuMDAwWiIsIkRpYUNoaSI6IlF14bqjbmcgTmluaCIsIlNEVCI6IjA5NjM1NjY3MDMiLCJDTU5EIjoiMTAxMjkxMjU3IiwiRW1haWwiOiJhNWxocC5zd2lmdEBnbWFpbC5jb20iLCJOZ2F5VmFvTGFtIjoiMjAyMC0wMy0xOFQwMDowMDowMC4wMDBaIiwiUm9sZU5hbWUiOiJBZG1pbiJ9LCJpYXQiOjE1ODY3OTc5MDEsImV4cCI6MTU4NjgwMTUwMX0.O_hCjom4MQZK79FURbpP1KCExH-In5Er3aH9lKS8_Ms",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"ma\": \"NV03\",\n\t\"ten\": \"Dương Thị Minh Nguyệt\",\n\t\"gioiTinh\": true,\n\t\"ngaySinh\": \"1998-08-23\",\n\t\"diaChi\": \"Quảng Ninh\",\n\t\"CMND\": \"1222212211\",\n\t\"SDT\": \"0382668851\",\n\t\"email\": \"moon.annie@gmail.com\",\n\t\"ngayVaoLam\": \"2020-03-20\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://cs-manage-store.herokuapp.com/api/employee/add-new-employee",
+					"protocol": "http",
+					"host": [
+						"cs-manage-store",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"employee",
+						"add-new-employee"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Chỉnh sửa nhân viên",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7IlVzZXJJZCI6MSwiVXNlcm5hbWUiOiJhZG1pbiIsIk5oYW5WaWVuSWQiOjEsIk1hTmhhblZpZW4iOiJOVjAxIiwiVGVuTmhhblZpZW4iOiJIb8OgbmcgVsSDbiBUdXnhu4FuIiwiR2lvaVRpbmgiOmZhbHNlLCJOZ2F5U2luaCI6IjE5OTgtMDYtMTZUMDA6MDA6MDAuMDAwWiIsIkRpYUNoaSI6IlF14bqjbmcgTmluaCIsIlNEVCI6IjA5NjM1NjY3MDMiLCJDTU5EIjoiMTAxMjkxMjU3IiwiRW1haWwiOiJhNWxocC5zd2lmdEBnbWFpbC5jb20iLCJOZ2F5VmFvTGFtIjoiMjAyMC0wMy0xOFQwMDowMDowMC4wMDBaIiwiUm9sZU5hbWUiOiJBZG1pbiJ9LCJpYXQiOjE1ODY3OTc5MDEsImV4cCI6MTU4NjgwMTUwMX0.O_hCjom4MQZK79FURbpP1KCExH-In5Er3aH9lKS8_Ms",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"ma\": \"NV03\",\n\t\"ten\": \"Dương Thị Minh Nguyệt\",\n\t\"gioiTinh\": true,\n\t\"ngaySinh\": \"1998-08-23\",\n\t\"diaChi\": \"Quảng Ninh\",\n\t\"CMND\": \"1222212211\",\n\t\"SDT\": \"0382668851\",\n\t\"email\": \"moon.annie@gmail.com\",\n\t\"ngayVaoLam\": \"2020-03-20\",\n\t\"employeeId\": 3\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://cs-manage-store.herokuapp.com/api/employee/update-employee",
+					"protocol": "http",
+					"host": [
+						"cs-manage-store",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"employee",
+						"update-employee"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Xóa nhân viên",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7IlVzZXJJZCI6MSwiVXNlcm5hbWUiOiJhZG1pbiIsIk5oYW5WaWVuSWQiOjEsIk1hTmhhblZpZW4iOiJOVjAxIiwiVGVuTmhhblZpZW4iOiJIb8OgbmcgVsSDbiBUdXnhu4FuIiwiR2lvaVRpbmgiOmZhbHNlLCJOZ2F5U2luaCI6IjE5OTgtMDYtMTZUMDA6MDA6MDAuMDAwWiIsIkRpYUNoaSI6IlF14bqjbmcgTmluaCIsIlNEVCI6IjA5NjM1NjY3MDMiLCJDTU5EIjoiMTAxMjkxMjU3IiwiRW1haWwiOiJhNWxocC5zd2lmdEBnbWFpbC5jb20iLCJOZ2F5VmFvTGFtIjoiMjAyMC0wMy0xOFQwMDowMDowMC4wMDBaIiwiUm9sZU5hbWUiOiJBZG1pbiJ9LCJpYXQiOjE1ODY3OTc5MDEsImV4cCI6MTU4NjgwMTUwMX0.O_hCjom4MQZK79FURbpP1KCExH-In5Er3aH9lKS8_Ms",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"employeeId\": 3\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://cs-manage-store.herokuapp.com/api/employee/delete-employee",
+					"protocol": "http",
+					"host": [
+						"cs-manage-store",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"employee",
+						"delete-employee"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Thêm mới nhóm vật tư",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7IlVzZXJJZCI6MSwiVXNlcm5hbWUiOiJhZG1pbiIsIk5oYW5WaWVuSWQiOjEsIk1hTmhhblZpZW4iOiJOVjAxIiwiVGVuTmhhblZpZW4iOiJIb8OgbmcgVsSDbiBUdXnhu4FuIiwiR2lvaVRpbmgiOmZhbHNlLCJOZ2F5U2luaCI6IjE5OTgtMDYtMTZUMDA6MDA6MDAuMDAwWiIsIkRpYUNoaSI6IlF14bqjbmcgTmluaCIsIlNEVCI6IjA5NjM1NjY3MDMiLCJDTU5EIjoiMTAxMjkxMjU3IiwiRW1haWwiOiJhNWxocC5zd2lmdEBnbWFpbC5jb20iLCJOZ2F5VmFvTGFtIjoiMjAyMC0wMy0xOFQwMDowMDowMC4wMDBaIiwiUm9sZU5hbWUiOiJBZG1pbiJ9LCJpYXQiOjE1ODY4MzQ0NDMsImV4cCI6MTU4NjgzODA0M30.7gQ097Tgoi-to7_h9VVqDDTOnn8cQacze4YiLFUqf5g",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"ma\": \"N10\",\n\t\"ten\": \"Xẻng\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://cs-manage-store.herokuapp.com/api/category/add-new-category",
+					"protocol": "http",
+					"host": [
+						"cs-manage-store",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"category",
+						"add-new-category"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Chỉnh sửa nhóm vật tư",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7IlVzZXJJZCI6MSwiVXNlcm5hbWUiOiJhZG1pbiIsIk5oYW5WaWVuSWQiOjEsIk1hTmhhblZpZW4iOiJOVjAxIiwiVGVuTmhhblZpZW4iOiJIb8OgbmcgVsSDbiBUdXnhu4FuIiwiR2lvaVRpbmgiOmZhbHNlLCJOZ2F5U2luaCI6IjE5OTgtMDYtMTZUMDA6MDA6MDAuMDAwWiIsIkRpYUNoaSI6IlF14bqjbmcgTmluaCIsIlNEVCI6IjA5NjM1NjY3MDMiLCJDTU5EIjoiMTAxMjkxMjU3IiwiRW1haWwiOiJhNWxocC5zd2lmdEBnbWFpbC5jb20iLCJOZ2F5VmFvTGFtIjoiMjAyMC0wMy0xOFQwMDowMDowMC4wMDBaIiwiUm9sZU5hbWUiOiJBZG1pbiJ9LCJpYXQiOjE1ODY4MzQ0NDMsImV4cCI6MTU4NjgzODA0M30.7gQ097Tgoi-to7_h9VVqDDTOnn8cQacze4YiLFUqf5g",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"ma\": \"N11\",\n\t\"ten\": \"Xẻng xây dựng\",\n\t\"categoryId\": 10\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://cs-manage-store.herokuapp.com/api/category/update-category",
+					"protocol": "http",
+					"host": [
+						"cs-manage-store",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"category",
+						"update-category"
+					],
+					"query": [
+						{
+							"key": "x-access-token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7IlVzZXJJZCI6MSwiVXNlcm5hbWUiOiJhZG1pbiIsIk5oYW5WaWVuSWQiOjEsIk1hTmhhblZpZW4iOiJOVjAxIiwiVGVuTmhhblZpZW4iOiJIb8OgbmcgVsSDbiBUdXnhu4FuIiwiR2lvaVRpbmgiOmZhbHNlLCJOZ2F5U2luaCI6IjE5OTgtMDYtMTZUMDA6MDA6MDAuMDAwWiIsIkRpYUNoaSI6IlF14bqjbmcgTmluaCIsIlNEVCI6IjA5NjM1NjY3MDMiLCJDTU5EIjoiMTAxMjkxMjU3IiwiRW1haWwiOiJhNWxocC5zd2lmdEBnbWFpbC5jb20iLCJOZ2F5VmFvTGFtIjoiMjAyMC0wMy0xOFQwMDowMDowMC4wMDBaIiwiUm9sZU5hbWUiOiJBZG1pbiJ9LCJpYXQiOjE1ODY4MzQ0NDMsImV4cCI6MTU4NjgzODA0M30.7gQ097Tgoi-to7_h9VVqDDTOnn8cQacze4YiLFUqf5g",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Xóa nhóm vật tư",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7IlVzZXJJZCI6MSwiVXNlcm5hbWUiOiJhZG1pbiIsIk5oYW5WaWVuSWQiOjEsIk1hTmhhblZpZW4iOiJOVjAxIiwiVGVuTmhhblZpZW4iOiJIb8OgbmcgVsSDbiBUdXnhu4FuIiwiR2lvaVRpbmgiOmZhbHNlLCJOZ2F5U2luaCI6IjE5OTgtMDYtMTZUMDA6MDA6MDAuMDAwWiIsIkRpYUNoaSI6IlF14bqjbmcgTmluaCIsIlNEVCI6IjA5NjM1NjY3MDMiLCJDTU5EIjoiMTAxMjkxMjU3IiwiRW1haWwiOiJhNWxocC5zd2lmdEBnbWFpbC5jb20iLCJOZ2F5VmFvTGFtIjoiMjAyMC0wMy0xOFQwMDowMDowMC4wMDBaIiwiUm9sZU5hbWUiOiJBZG1pbiJ9LCJpYXQiOjE1ODY4MzQ0NDMsImV4cCI6MTU4NjgzODA0M30.7gQ097Tgoi-to7_h9VVqDDTOnn8cQacze4YiLFUqf5g",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"categoryId\": 10\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://cs-manage-store.herokuapp.com/api/category/delete-category",
+					"protocol": "http",
+					"host": [
+						"cs-manage-store",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"category",
+						"delete-category"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lấy tất cả nhóm vật tư",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7IlVzZXJJZCI6MSwiVXNlcm5hbWUiOiJhZG1pbiIsIk5oYW5WaWVuSWQiOjEsIk1hTmhhblZpZW4iOiJOVjAxIiwiVGVuTmhhblZpZW4iOiJIb8OgbmcgVsSDbiBUdXnhu4FuIiwiR2lvaVRpbmgiOmZhbHNlLCJOZ2F5U2luaCI6IjE5OTgtMDYtMTZUMDA6MDA6MDAuMDAwWiIsIkRpYUNoaSI6IlF14bqjbmcgTmluaCIsIlNEVCI6IjA5NjM1NjY3MDMiLCJDTU5EIjoiMTAxMjkxMjU3IiwiRW1haWwiOiJhNWxocC5zd2lmdEBnbWFpbC5jb20iLCJOZ2F5VmFvTGFtIjoiMjAyMC0wMy0xOFQwMDowMDowMC4wMDBaIiwiUm9sZU5hbWUiOiJBZG1pbiJ9LCJpYXQiOjE1ODY4MzQ0NDMsImV4cCI6MTU4NjgzODA0M30.7gQ097Tgoi-to7_h9VVqDDTOnn8cQacze4YiLFUqf5g",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://cs-manage-store.herokuapp.com/api/category/list-all-category",
+					"protocol": "http",
+					"host": [
+						"cs-manage-store",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"category",
+						"list-all-category"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lấy vật tư theo nhóm vật tư",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7IlVzZXJJZCI6MSwiVXNlcm5hbWUiOiJhZG1pbiIsIk5oYW5WaWVuSWQiOjEsIk1hTmhhblZpZW4iOiJOVjAxIiwiVGVuTmhhblZpZW4iOiJIb8OgbmcgVsSDbiBUdXnhu4FuIiwiR2lvaVRpbmgiOmZhbHNlLCJOZ2F5U2luaCI6IjE5OTgtMDYtMTZUMDA6MDA6MDAuMDAwWiIsIkRpYUNoaSI6IlF14bqjbmcgTmluaCIsIlNEVCI6IjA5NjM1NjY3MDMiLCJDTU5EIjoiMTAxMjkxMjU3IiwiRW1haWwiOiJhNWxocC5zd2lmdEBnbWFpbC5jb20iLCJOZ2F5VmFvTGFtIjoiMjAyMC0wMy0xOFQwMDowMDowMC4wMDBaIiwiUm9sZU5hbWUiOiJBZG1pbiJ9LCJpYXQiOjE1ODY4MzQ0NDMsImV4cCI6MTU4NjgzODA0M30.7gQ097Tgoi-to7_h9VVqDDTOnn8cQacze4YiLFUqf5g",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://cs-manage-store.herokuapp.com/api/category/list-product/1",
+					"protocol": "http",
+					"host": [
+						"cs-manage-store",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"category",
+						"list-product",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Thêm mới nhà cung cấp",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7IlVzZXJJZCI6MSwiVXNlcm5hbWUiOiJhZG1pbiIsIk5oYW5WaWVuSWQiOjEsIk1hTmhhblZpZW4iOiJOVjAxIiwiVGVuTmhhblZpZW4iOiJIb8OgbmcgVsSDbiBUdXnhu4FuIiwiR2lvaVRpbmgiOmZhbHNlLCJOZ2F5U2luaCI6IjE5OTgtMDYtMTZUMDA6MDA6MDAuMDAwWiIsIkRpYUNoaSI6IlF14bqjbmcgTmluaCIsIlNEVCI6IjA5NjM1NjY3MDMiLCJDTU5EIjoiMTAxMjkxMjU3IiwiRW1haWwiOiJhNWxocC5zd2lmdEBnbWFpbC5jb20iLCJOZ2F5VmFvTGFtIjoiMjAyMC0wMy0xOFQwMDowMDowMC4wMDBaIiwiUm9sZU5hbWUiOiJBZG1pbiJ9LCJpYXQiOjE1ODY4MzQ0NDMsImV4cCI6MTU4NjgzODA0M30.7gQ097Tgoi-to7_h9VVqDDTOnn8cQacze4YiLFUqf5g",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"ma\": \"P6\",\n\t\"ten\": \"Tôn Đông Á\",\n\t\"diaChi\": \"Hà Nội\",\n\t\"sdt\": \"0322123112\",\n\t\"email\": \"donga.4ever@yahoo.co.uk\",\n\t\"nguoiDaiDien\": \"Đoàn Thị Hồng Ngọc\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://cs-manage-store.herokuapp.com/api/provider/add-new-provider",
+					"protocol": "http",
+					"host": [
+						"cs-manage-store",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"provider",
+						"add-new-provider"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Chỉnh sửa nhà cung cấp",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7IlVzZXJJZCI6MSwiVXNlcm5hbWUiOiJhZG1pbiIsIk5oYW5WaWVuSWQiOjEsIk1hTmhhblZpZW4iOiJOVjAxIiwiVGVuTmhhblZpZW4iOiJIb8OgbmcgVsSDbiBUdXnhu4FuIiwiR2lvaVRpbmgiOmZhbHNlLCJOZ2F5U2luaCI6IjE5OTgtMDYtMTZUMDA6MDA6MDAuMDAwWiIsIkRpYUNoaSI6IlF14bqjbmcgTmluaCIsIlNEVCI6IjA5NjM1NjY3MDMiLCJDTU5EIjoiMTAxMjkxMjU3IiwiRW1haWwiOiJhNWxocC5zd2lmdEBnbWFpbC5jb20iLCJOZ2F5VmFvTGFtIjoiMjAyMC0wMy0xOFQwMDowMDowMC4wMDBaIiwiUm9sZU5hbWUiOiJBZG1pbiJ9LCJpYXQiOjE1ODY4MzQ0NDMsImV4cCI6MTU4NjgzODA0M30.7gQ097Tgoi-to7_h9VVqDDTOnn8cQacze4YiLFUqf5g",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"ma\": \"P6\",\n\t\"ten\": \"Tôn Đông Á\",\n\t\"diaChi\": \"Hà Nội\",\n\t\"sdt\": \"0322123112\",\n\t\"email\": \"donga.4ever@gmail\",\n\t\"nguoiDaiDien\": \"Đoàn Thị Hồng Ngọc\",\n\t\"providerId\": 6\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://cs-manage-store.herokuapp.com/api/provider/update-provider",
+					"protocol": "http",
+					"host": [
+						"cs-manage-store",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"provider",
+						"update-provider"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Xóa nhà cung cấp",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7IlVzZXJJZCI6MSwiVXNlcm5hbWUiOiJhZG1pbiIsIk5oYW5WaWVuSWQiOjEsIk1hTmhhblZpZW4iOiJOVjAxIiwiVGVuTmhhblZpZW4iOiJIb8OgbmcgVsSDbiBUdXnhu4FuIiwiR2lvaVRpbmgiOmZhbHNlLCJOZ2F5U2luaCI6IjE5OTgtMDYtMTZUMDA6MDA6MDAuMDAwWiIsIkRpYUNoaSI6IlF14bqjbmcgTmluaCIsIlNEVCI6IjA5NjM1NjY3MDMiLCJDTU5EIjoiMTAxMjkxMjU3IiwiRW1haWwiOiJhNWxocC5zd2lmdEBnbWFpbC5jb20iLCJOZ2F5VmFvTGFtIjoiMjAyMC0wMy0xOFQwMDowMDowMC4wMDBaIiwiUm9sZU5hbWUiOiJBZG1pbiJ9LCJpYXQiOjE1ODY4MzQ0NDMsImV4cCI6MTU4NjgzODA0M30.7gQ097Tgoi-to7_h9VVqDDTOnn8cQacze4YiLFUqf5g",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"providerId\": 5\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://cs-manage-store.herokuapp.com/api/provider/delete-provider",
+					"protocol": "http",
+					"host": [
+						"cs-manage-store",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"provider",
+						"delete-provider"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lấy tất cả nhà cung cấp",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7IlVzZXJJZCI6MSwiVXNlcm5hbWUiOiJhZG1pbiIsIk5oYW5WaWVuSWQiOjEsIk1hTmhhblZpZW4iOiJOVjAxIiwiVGVuTmhhblZpZW4iOiJIb8OgbmcgVsSDbiBUdXnhu4FuIiwiR2lvaVRpbmgiOmZhbHNlLCJOZ2F5U2luaCI6IjE5OTgtMDYtMTZUMDA6MDA6MDAuMDAwWiIsIkRpYUNoaSI6IlF14bqjbmcgTmluaCIsIlNEVCI6IjA5NjM1NjY3MDMiLCJDTU5EIjoiMTAxMjkxMjU3IiwiRW1haWwiOiJhNWxocC5zd2lmdEBnbWFpbC5jb20iLCJOZ2F5VmFvTGFtIjoiMjAyMC0wMy0xOFQwMDowMDowMC4wMDBaIiwiUm9sZU5hbWUiOiJBZG1pbiJ9LCJpYXQiOjE1ODY4MzQ0NDMsImV4cCI6MTU4NjgzODA0M30.7gQ097Tgoi-to7_h9VVqDDTOnn8cQacze4YiLFUqf5g",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://cs-manage-store.herokuapp.com/api/provider/list-all-provider",
+					"protocol": "http",
+					"host": [
+						"cs-manage-store",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"provider",
+						"list-all-provider"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lấy vật tư theo nhà cung cấp",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7IlVzZXJJZCI6MSwiVXNlcm5hbWUiOiJhZG1pbiIsIk5oYW5WaWVuSWQiOjEsIk1hTmhhblZpZW4iOiJOVjAxIiwiVGVuTmhhblZpZW4iOiJIb8OgbmcgVsSDbiBUdXnhu4FuIiwiR2lvaVRpbmgiOmZhbHNlLCJOZ2F5U2luaCI6IjE5OTgtMDYtMTZUMDA6MDA6MDAuMDAwWiIsIkRpYUNoaSI6IlF14bqjbmcgTmluaCIsIlNEVCI6IjA5NjM1NjY3MDMiLCJDTU5EIjoiMTAxMjkxMjU3IiwiRW1haWwiOiJhNWxocC5zd2lmdEBnbWFpbC5jb20iLCJOZ2F5VmFvTGFtIjoiMjAyMC0wMy0xOFQwMDowMDowMC4wMDBaIiwiUm9sZU5hbWUiOiJBZG1pbiJ9LCJpYXQiOjE1ODY4MzQ0NDMsImV4cCI6MTU4NjgzODA0M30.7gQ097Tgoi-to7_h9VVqDDTOnn8cQacze4YiLFUqf5g",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://cs-manage-store.herokuapp.com/api/provider/list-product/1",
+					"protocol": "http",
+					"host": [
+						"cs-manage-store",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"provider",
+						"list-product",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Thêm mới vật tư",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7IlVzZXJJZCI6MSwiVXNlcm5hbWUiOiJhZG1pbiIsIk5oYW5WaWVuSWQiOjEsIk1hTmhhblZpZW4iOiJOVjAxIiwiVGVuTmhhblZpZW4iOiJIb8OgbmcgVsSDbiBUdXnhu4FuIiwiR2lvaVRpbmgiOmZhbHNlLCJOZ2F5U2luaCI6IjE5OTgtMDYtMTZUMDA6MDA6MDAuMDAwWiIsIkRpYUNoaSI6IlF14bqjbmcgTmluaCIsIlNEVCI6IjA5NjM1NjY3MDMiLCJDTU5EIjoiMTAxMjkxMjU3IiwiRW1haWwiOiJhNWxocC5zd2lmdEBnbWFpbC5jb20iLCJOZ2F5VmFvTGFtIjoiMjAyMC0wMy0xOFQwMDowMDowMC4wMDBaIiwiUm9sZU5hbWUiOiJBZG1pbiJ9LCJpYXQiOjE1ODY4MzQ0NDMsImV4cCI6MTU4NjgzODA0M30.7gQ097Tgoi-to7_h9VVqDDTOnn8cQacze4YiLFUqf5g",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"ma\": \"VT7\",\n\t\"ten\": \"Xi măng trắng\",\n\t\"donGia\": \"5600\",\n\t\"donGiaNhap\": \"4800\",\n\t\"donViTinh\": \"Cân\",\n\t\"idNhomVatTu\": 3,\n\t\"idNhaCungCap\": 2\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://cs-manage-store.herokuapp.com/api/product/add-new-product",
+					"protocol": "http",
+					"host": [
+						"cs-manage-store",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"product",
+						"add-new-product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Chỉnh sửa vật tư",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7IlVzZXJJZCI6MSwiVXNlcm5hbWUiOiJhZG1pbiIsIk5oYW5WaWVuSWQiOjEsIk1hTmhhblZpZW4iOiJOVjAxIiwiVGVuTmhhblZpZW4iOiJIb8OgbmcgVsSDbiBUdXnhu4FuIiwiR2lvaVRpbmgiOmZhbHNlLCJOZ2F5U2luaCI6IjE5OTgtMDYtMTZUMDA6MDA6MDAuMDAwWiIsIkRpYUNoaSI6IlF14bqjbmcgTmluaCIsIlNEVCI6IjA5NjM1NjY3MDMiLCJDTU5EIjoiMTAxMjkxMjU3IiwiRW1haWwiOiJhNWxocC5zd2lmdEBnbWFpbC5jb20iLCJOZ2F5VmFvTGFtIjoiMjAyMC0wMy0xOFQwMDowMDowMC4wMDBaIiwiUm9sZU5hbWUiOiJBZG1pbiJ9LCJpYXQiOjE1ODY4MzQ0NDMsImV4cCI6MTU4NjgzODA0M30.7gQ097Tgoi-to7_h9VVqDDTOnn8cQacze4YiLFUqf5g",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"ma\": \"VT17\",\n\t\"ten\": \"Xi măng trắng\",\n\t\"donGia\": \"5900\",\n\t\"donGiaNhap\": \"4800\",\n\t\"donViTinh\": \"Cân\",\n\t\"idNhomVatTu\": 3,\n\t\"idNhaCungCap\": 2,\n\t\"productId\": 7\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://cs-manage-store.herokuapp.com/api/product/update-product",
+					"protocol": "http",
+					"host": [
+						"cs-manage-store",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"product",
+						"update-product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Xóa vật tư",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7IlVzZXJJZCI6MSwiVXNlcm5hbWUiOiJhZG1pbiIsIk5oYW5WaWVuSWQiOjEsIk1hTmhhblZpZW4iOiJOVjAxIiwiVGVuTmhhblZpZW4iOiJIb8OgbmcgVsSDbiBUdXnhu4FuIiwiR2lvaVRpbmgiOmZhbHNlLCJOZ2F5U2luaCI6IjE5OTgtMDYtMTZUMDA6MDA6MDAuMDAwWiIsIkRpYUNoaSI6IlF14bqjbmcgTmluaCIsIlNEVCI6IjA5NjM1NjY3MDMiLCJDTU5EIjoiMTAxMjkxMjU3IiwiRW1haWwiOiJhNWxocC5zd2lmdEBnbWFpbC5jb20iLCJOZ2F5VmFvTGFtIjoiMjAyMC0wMy0xOFQwMDowMDowMC4wMDBaIiwiUm9sZU5hbWUiOiJBZG1pbiJ9LCJpYXQiOjE1ODY4MzQ0NDMsImV4cCI6MTU4NjgzODA0M30.7gQ097Tgoi-to7_h9VVqDDTOnn8cQacze4YiLFUqf5g",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"productId\": 7\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://cs-manage-store.herokuapp.com/api/product/delete-product",
+					"protocol": "http",
+					"host": [
+						"cs-manage-store",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"product",
+						"delete-product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lấy tất cả vật tư",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7IlVzZXJJZCI6MSwiVXNlcm5hbWUiOiJhZG1pbiIsIk5oYW5WaWVuSWQiOjEsIk1hTmhhblZpZW4iOiJOVjAxIiwiVGVuTmhhblZpZW4iOiJIb8OgbmcgVsSDbiBUdXnhu4FuIiwiR2lvaVRpbmgiOmZhbHNlLCJOZ2F5U2luaCI6IjE5OTgtMDYtMTZUMDA6MDA6MDAuMDAwWiIsIkRpYUNoaSI6IlF14bqjbmcgTmluaCIsIlNEVCI6IjA5NjM1NjY3MDMiLCJDTU5EIjoiMTAxMjkxMjU3IiwiRW1haWwiOiJhNWxocC5zd2lmdEBnbWFpbC5jb20iLCJOZ2F5VmFvTGFtIjoiMjAyMC0wMy0xOFQwMDowMDowMC4wMDBaIiwiUm9sZU5hbWUiOiJBZG1pbiJ9LCJpYXQiOjE1ODY4MzQ0NDMsImV4cCI6MTU4NjgzODA0M30.7gQ097Tgoi-to7_h9VVqDDTOnn8cQacze4YiLFUqf5g",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://cs-manage-store.herokuapp.com/api/product/list-all-product",
+					"protocol": "http",
+					"host": [
+						"cs-manage-store",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"product",
+						"list-all-product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lấy danh sách vật tư phân trang",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7IlVzZXJJZCI6MSwiVXNlcm5hbWUiOiJhZG1pbiIsIk5oYW5WaWVuSWQiOjEsIk1hTmhhblZpZW4iOiJOVjAxIiwiVGVuTmhhblZpZW4iOiJIb8OgbmcgVsSDbiBUdXnhu4FuIiwiR2lvaVRpbmgiOmZhbHNlLCJOZ2F5U2luaCI6IjE5OTgtMDYtMTZUMDA6MDA6MDAuMDAwWiIsIkRpYUNoaSI6IlF14bqjbmcgTmluaCIsIlNEVCI6IjA5NjM1NjY3MDMiLCJDTU5EIjoiMTAxMjkxMjU3IiwiRW1haWwiOiJhNWxocC5zd2lmdEBnbWFpbC5jb20iLCJOZ2F5VmFvTGFtIjoiMjAyMC0wMy0xOFQwMDowMDowMC4wMDBaIiwiUm9sZU5hbWUiOiJBZG1pbiJ9LCJpYXQiOjE1ODY4MzQ0NDMsImV4cCI6MTU4NjgzODA0M30.7gQ097Tgoi-to7_h9VVqDDTOnn8cQacze4YiLFUqf5g",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://cs-manage-store.herokuapp.com/api/product/list-product?page=1",
+					"protocol": "http",
+					"host": [
+						"cs-manage-store",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"product",
+						"list-product"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Thêm mới kho",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7IlVzZXJJZCI6MSwiVXNlcm5hbWUiOiJhZG1pbiIsIk5oYW5WaWVuSWQiOjEsIk1hTmhhblZpZW4iOiJOVjAxIiwiVGVuTmhhblZpZW4iOiJIb8OgbmcgVsSDbiBUdXnhu4FuIiwiR2lvaVRpbmgiOmZhbHNlLCJOZ2F5U2luaCI6IjE5OTgtMDYtMTZUMDA6MDA6MDAuMDAwWiIsIkRpYUNoaSI6IlF14bqjbmcgTmluaCIsIlNEVCI6IjA5NjM1NjY3MDMiLCJDTU5EIjoiMTAxMjkxMjU3IiwiRW1haWwiOiJhNWxocC5zd2lmdEBnbWFpbC5jb20iLCJOZ2F5VmFvTGFtIjoiMjAyMC0wMy0xOFQwMDowMDowMC4wMDBaIiwiUm9sZU5hbWUiOiJBZG1pbiJ9LCJpYXQiOjE1ODY4MzgwNzgsImV4cCI6MTU4Njg0MTY3OH0.UL0Qq3_qTP_gPsD_EM1PeQjYzpUkmePvUEGzd0MV8NI",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"ma\": \"K3\",\n\t\"ten\": \"Kho vật tư Hà Nội\",\n\t\"diaChi\": \"Hà Nội\",\n\t\"sdt\": \"0232322222\",\n\t\"ghiChu\": \"Test thêm kho\",\n\t\"idQuanLy\": \"2\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://cs-manage-store.herokuapp.com/api/warehouse/add-new-warehouse",
+					"protocol": "http",
+					"host": [
+						"cs-manage-store",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"warehouse",
+						"add-new-warehouse"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Chỉnh sửa kho",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7IlVzZXJJZCI6MSwiVXNlcm5hbWUiOiJhZG1pbiIsIk5oYW5WaWVuSWQiOjEsIk1hTmhhblZpZW4iOiJOVjAxIiwiVGVuTmhhblZpZW4iOiJIb8OgbmcgVsSDbiBUdXnhu4FuIiwiR2lvaVRpbmgiOmZhbHNlLCJOZ2F5U2luaCI6IjE5OTgtMDYtMTZUMDA6MDA6MDAuMDAwWiIsIkRpYUNoaSI6IlF14bqjbmcgTmluaCIsIlNEVCI6IjA5NjM1NjY3MDMiLCJDTU5EIjoiMTAxMjkxMjU3IiwiRW1haWwiOiJhNWxocC5zd2lmdEBnbWFpbC5jb20iLCJOZ2F5VmFvTGFtIjoiMjAyMC0wMy0xOFQwMDowMDowMC4wMDBaIiwiUm9sZU5hbWUiOiJBZG1pbiJ9LCJpYXQiOjE1ODY4MzgwNzgsImV4cCI6MTU4Njg0MTY3OH0.UL0Qq3_qTP_gPsD_EM1PeQjYzpUkmePvUEGzd0MV8NI",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"ma\": \"K3\",\n\t\"ten\": \"Kho vật tư Hà Nội\",\n\t\"diaChi\": \"Hà Nội\",\n\t\"sdt\": \"0232322222\",\n\t\"ghiChu\": \"Test sửa kho\",\n\t\"idQuanLy\": 1,\n\t\"warehouseId\": 3\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://cs-manage-store.herokuapp.com/api/warehouse/update-warehouse",
+					"protocol": "http",
+					"host": [
+						"cs-manage-store",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"warehouse",
+						"update-warehouse"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Xóa kho",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7IlVzZXJJZCI6MSwiVXNlcm5hbWUiOiJhZG1pbiIsIk5oYW5WaWVuSWQiOjEsIk1hTmhhblZpZW4iOiJOVjAxIiwiVGVuTmhhblZpZW4iOiJIb8OgbmcgVsSDbiBUdXnhu4FuIiwiR2lvaVRpbmgiOmZhbHNlLCJOZ2F5U2luaCI6IjE5OTgtMDYtMTZUMDA6MDA6MDAuMDAwWiIsIkRpYUNoaSI6IlF14bqjbmcgTmluaCIsIlNEVCI6IjA5NjM1NjY3MDMiLCJDTU5EIjoiMTAxMjkxMjU3IiwiRW1haWwiOiJhNWxocC5zd2lmdEBnbWFpbC5jb20iLCJOZ2F5VmFvTGFtIjoiMjAyMC0wMy0xOFQwMDowMDowMC4wMDBaIiwiUm9sZU5hbWUiOiJBZG1pbiJ9LCJpYXQiOjE1ODY4MzgwNzgsImV4cCI6MTU4Njg0MTY3OH0.UL0Qq3_qTP_gPsD_EM1PeQjYzpUkmePvUEGzd0MV8NI",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"warehouseId\": 3\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://cs-manage-store.herokuapp.com/api/warehouse/delete-warehouse",
+					"protocol": "http",
+					"host": [
+						"cs-manage-store",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"warehouse",
+						"delete-warehouse"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lấy tất cả kho",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7IlVzZXJJZCI6MSwiVXNlcm5hbWUiOiJhZG1pbiIsIk5oYW5WaWVuSWQiOjEsIk1hTmhhblZpZW4iOiJOVjAxIiwiVGVuTmhhblZpZW4iOiJIb8OgbmcgVsSDbiBUdXnhu4FuIiwiR2lvaVRpbmgiOmZhbHNlLCJOZ2F5U2luaCI6IjE5OTgtMDYtMTZUMDA6MDA6MDAuMDAwWiIsIkRpYUNoaSI6IlF14bqjbmcgTmluaCIsIlNEVCI6IjA5NjM1NjY3MDMiLCJDTU5EIjoiMTAxMjkxMjU3IiwiRW1haWwiOiJhNWxocC5zd2lmdEBnbWFpbC5jb20iLCJOZ2F5VmFvTGFtIjoiMjAyMC0wMy0xOFQwMDowMDowMC4wMDBaIiwiUm9sZU5hbWUiOiJBZG1pbiJ9LCJpYXQiOjE1ODY4MzgwNzgsImV4cCI6MTU4Njg0MTY3OH0.UL0Qq3_qTP_gPsD_EM1PeQjYzpUkmePvUEGzd0MV8NI",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://cs-manage-store.herokuapp.com/api/warehouse/list-all-warehouse",
+					"protocol": "http",
+					"host": [
+						"cs-manage-store",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"warehouse",
+						"list-all-warehouse"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lấy vật tư theo kho",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7IlVzZXJJZCI6MSwiVXNlcm5hbWUiOiJhZG1pbiIsIk5oYW5WaWVuSWQiOjEsIk1hTmhhblZpZW4iOiJOVjAxIiwiVGVuTmhhblZpZW4iOiJIb8OgbmcgVsSDbiBUdXnhu4FuIiwiR2lvaVRpbmgiOmZhbHNlLCJOZ2F5U2luaCI6IjE5OTgtMDYtMTZUMDA6MDA6MDAuMDAwWiIsIkRpYUNoaSI6IlF14bqjbmcgTmluaCIsIlNEVCI6IjA5NjM1NjY3MDMiLCJDTU5EIjoiMTAxMjkxMjU3IiwiRW1haWwiOiJhNWxocC5zd2lmdEBnbWFpbC5jb20iLCJOZ2F5VmFvTGFtIjoiMjAyMC0wMy0xOFQwMDowMDowMC4wMDBaIiwiUm9sZU5hbWUiOiJBZG1pbiJ9LCJpYXQiOjE1ODY4NTMxNjgsImV4cCI6MTU4Njg1Njc2OH0.tiGnpoqqCbgufsMaUthf41dEAn62wetN1PeW_ZOwms4",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://cs-manage-store.herokuapp.com/api/warehouse/list-product/2",
+					"protocol": "http",
+					"host": [
+						"cs-manage-store",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"warehouse",
+						"list-product",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Thêm phiếu nhập kho",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7IlVzZXJJZCI6MSwiVXNlcm5hbWUiOiJhZG1pbiIsIk5oYW5WaWVuSWQiOjEsIk1hTmhhblZpZW4iOiJOVjAxIiwiVGVuTmhhblZpZW4iOiJIb8OgbmcgVsSDbiBUdXnhu4FuIiwiR2lvaVRpbmgiOmZhbHNlLCJOZ2F5U2luaCI6IjE5OTgtMDYtMTZUMDA6MDA6MDAuMDAwWiIsIkRpYUNoaSI6IlF14bqjbmcgTmluaCIsIlNEVCI6IjA5NjM1NjY3MDMiLCJDTU5EIjoiMTAxMjkxMjU3IiwiRW1haWwiOiJhNWxocC5zd2lmdEBnbWFpbC5jb20iLCJOZ2F5VmFvTGFtIjoiMjAyMC0wMy0xOFQwMDowMDowMC4wMDBaIiwiUm9sZU5hbWUiOiJBZG1pbiJ9LCJpYXQiOjE1ODY4NTMxNjgsImV4cCI6MTU4Njg1Njc2OH0.tiGnpoqqCbgufsMaUthf41dEAn62wetN1PeW_ZOwms4",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"Ma\": \"PN3\",\n\t\"NgayNhap\": \"2020-04-12\",\n\t\"IdNhaCungCap\": 3,\n\t\"IdNhanVien\": 1,\n\t\"IdKho\": 2,\n\t\"GhiChu\": \"Silence is golden\",\n\t\"listProduct\": [\n\t\t{\n\t\t\t\"Id\": 5,\n\t\t\t\"SoLuong\": 500,\n\t\t\t\"GhiChu\": \"Làm 5 trăm viên cho vui\"\n\t\t},\n\t\t{\n\t\t\t\"Id\": 6,\n\t\t\t\"SoLuong\": 1000,\n\t\t\t\"GhiChu\": \"Làm nghìn viên cho vui\"\n\t\t}\t\n\t]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://cs-manage-store.herokuapp.com/api/import/add-new-receipt",
+					"protocol": "http",
+					"host": [
+						"cs-manage-store",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"import",
+						"add-new-receipt"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Chỉnh sửa phiếu nhập kho",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7IlVzZXJJZCI6MSwiVXNlcm5hbWUiOiJhZG1pbiIsIk5oYW5WaWVuSWQiOjEsIk1hTmhhblZpZW4iOiJOVjAxIiwiVGVuTmhhblZpZW4iOiJIb8OgbmcgVsSDbiBUdXnhu4FuIiwiR2lvaVRpbmgiOmZhbHNlLCJOZ2F5U2luaCI6IjE5OTgtMDYtMTZUMDA6MDA6MDAuMDAwWiIsIkRpYUNoaSI6IlF14bqjbmcgTmluaCIsIlNEVCI6IjA5NjM1NjY3MDMiLCJDTU5EIjoiMTAxMjkxMjU3IiwiRW1haWwiOiJhNWxocC5zd2lmdEBnbWFpbC5jb20iLCJOZ2F5VmFvTGFtIjoiMjAyMC0wMy0xOFQwMDowMDowMC4wMDBaIiwiUm9sZU5hbWUiOiJBZG1pbiJ9LCJpYXQiOjE1ODY4NTMxNjgsImV4cCI6MTU4Njg1Njc2OH0.tiGnpoqqCbgufsMaUthf41dEAn62wetN1PeW_ZOwms4",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"Ma\": \"PN4\",\n\t\"NgayNhap\": \"2020-04-10\",\n\t\"IdNhaCungCap\": 3,\n\t\"IdNhanVien\": 1,\n\t\"GhiChu\": \"Lan Anh 98\",\n\t\"Id\": 28,\n\t\"listProduct\": [\n\t\t{\n\t\t\t\"Id\": 5,\n\t\t\t\"SoLuong\": 500,\n\t\t\t\"GhiChu\": \"Làm 5 trăm viên cho vui\"\n\t\t},\n\t\t{\n\t\t\t\"Id\": 6,\n\t\t\t\"SoLuong\": 1000,\n\t\t\t\"GhiChu\": \"Làm nghìn viên cho vui\"\n\t\t}\t\n\t]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://cs-manage-store.herokuapp.com/api/import/update-receipt",
+					"protocol": "http",
+					"host": [
+						"cs-manage-store",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"import",
+						"update-receipt"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lấy tất cả phiếu nhập kho",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7IlVzZXJJZCI6MSwiVXNlcm5hbWUiOiJhZG1pbiIsIk5oYW5WaWVuSWQiOjEsIk1hTmhhblZpZW4iOiJOVjAxIiwiVGVuTmhhblZpZW4iOiJIb8OgbmcgVsSDbiBUdXnhu4FuIiwiR2lvaVRpbmgiOmZhbHNlLCJOZ2F5U2luaCI6IjE5OTgtMDYtMTZUMDA6MDA6MDAuMDAwWiIsIkRpYUNoaSI6IlF14bqjbmcgTmluaCIsIlNEVCI6IjA5NjM1NjY3MDMiLCJDTU5EIjoiMTAxMjkxMjU3IiwiRW1haWwiOiJhNWxocC5zd2lmdEBnbWFpbC5jb20iLCJOZ2F5VmFvTGFtIjoiMjAyMC0wMy0xOFQwMDowMDowMC4wMDBaIiwiUm9sZU5hbWUiOiJBZG1pbiJ9LCJpYXQiOjE1ODY4NTMxNjgsImV4cCI6MTU4Njg1Njc2OH0.tiGnpoqqCbgufsMaUthf41dEAn62wetN1PeW_ZOwms4",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://cs-manage-store.herokuapp.com/api/import/get-all",
+					"protocol": "http",
+					"host": [
+						"cs-manage-store",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"import",
+						"get-all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lấy chi tiết phiếu nhập kho",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7IlVzZXJJZCI6MSwiVXNlcm5hbWUiOiJhZG1pbiIsIk5oYW5WaWVuSWQiOjEsIk1hTmhhblZpZW4iOiJOVjAxIiwiVGVuTmhhblZpZW4iOiJIb8OgbmcgVsSDbiBUdXnhu4FuIiwiR2lvaVRpbmgiOmZhbHNlLCJOZ2F5U2luaCI6IjE5OTgtMDYtMTZUMDA6MDA6MDAuMDAwWiIsIkRpYUNoaSI6IlF14bqjbmcgTmluaCIsIlNEVCI6IjA5NjM1NjY3MDMiLCJDTU5EIjoiMTAxMjkxMjU3IiwiRW1haWwiOiJhNWxocC5zd2lmdEBnbWFpbC5jb20iLCJOZ2F5VmFvTGFtIjoiMjAyMC0wMy0xOFQwMDowMDowMC4wMDBaIiwiUm9sZU5hbWUiOiJBZG1pbiJ9LCJpYXQiOjE1ODgwMDA3NDksImV4cCI6MTYxOTUzNjc0OX0.junzTlpKTSWNLAv7lVPxD4DLbq9f47JVJh-kyUpTzBA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://cs-manage-store.herokuapp.com/api/import/get-detail/26",
+					"protocol": "http",
+					"host": [
+						"cs-manage-store",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"import",
+						"get-detail",
+						"26"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Thêm phiếu xuất kho",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7IlVzZXJJZCI6MSwiVXNlcm5hbWUiOiJhZG1pbiIsIk5oYW5WaWVuSWQiOjEsIk1hTmhhblZpZW4iOiJOVjAxIiwiVGVuTmhhblZpZW4iOiJIb8OgbmcgVsSDbiBUdXnhu4FuIiwiR2lvaVRpbmgiOmZhbHNlLCJOZ2F5U2luaCI6IjE5OTgtMDYtMTZUMDA6MDA6MDAuMDAwWiIsIkRpYUNoaSI6IlF14bqjbmcgTmluaCIsIlNEVCI6IjA5NjM1NjY3MDMiLCJDTU5EIjoiMTAxMjkxMjU3IiwiRW1haWwiOiJhNWxocC5zd2lmdEBnbWFpbC5jb20iLCJOZ2F5VmFvTGFtIjoiMjAyMC0wMy0xOFQwMDowMDowMC4wMDBaIiwiUm9sZU5hbWUiOiJBZG1pbiJ9LCJpYXQiOjE1ODY4NzQwOTQsImV4cCI6MTU4Njg3NzY5NH0.HLUOZS9tXCYXiTkKgTN0XNMyrZLDfKSz-JD8WbQ7SBA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"Ma\": \"PX5\",\n\t\"NgayXuat\": \"2020-02-14\",\n\t\"DiaChi\": \"Cầu Giấy, Cầu Giấy, Hà Nội\",\n\t\"IdNhanVien\": 2,\n\t\"IdKho\": 1,\n\t\"GhiChu\": \"Hihi\",\n\t\"listProduct\": [\n\t\t{\n\t\t\t\"Id\": 1,\n\t\t\t\"SoLuong\": 50,\n\t\t\t\"GhiChu\": \"Làm 5 trăm viên cho vui\"\n\t\t},\n\t\t{\n\t\t\t\"Id\": 2,\n\t\t\t\"SoLuong\": 100,\n\t\t\t\"GhiChu\": \"Làm nghìn viên cho vui\"\n\t\t}\t\n\t]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://cs-manage-store.herokuapp.com/api/export/add-new-receipt",
+					"protocol": "http",
+					"host": [
+						"cs-manage-store",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"export",
+						"add-new-receipt"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Chỉnh sửa phiếu xuất kho",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7IlVzZXJJZCI6MSwiVXNlcm5hbWUiOiJhZG1pbiIsIk5oYW5WaWVuSWQiOjEsIk1hTmhhblZpZW4iOiJOVjAxIiwiVGVuTmhhblZpZW4iOiJIb8OgbmcgVsSDbiBUdXnhu4FuIiwiR2lvaVRpbmgiOmZhbHNlLCJOZ2F5U2luaCI6IjE5OTgtMDYtMTZUMDA6MDA6MDAuMDAwWiIsIkRpYUNoaSI6IlF14bqjbmcgTmluaCIsIlNEVCI6IjA5NjM1NjY3MDMiLCJDTU5EIjoiMTAxMjkxMjU3IiwiRW1haWwiOiJhNWxocC5zd2lmdEBnbWFpbC5jb20iLCJOZ2F5VmFvTGFtIjoiMjAyMC0wMy0xOFQwMDowMDowMC4wMDBaIiwiUm9sZU5hbWUiOiJBZG1pbiJ9LCJpYXQiOjE1ODY4NzQwOTQsImV4cCI6MTU4Njg3NzY5NH0.HLUOZS9tXCYXiTkKgTN0XNMyrZLDfKSz-JD8WbQ7SBA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"Ma\": \"PX5\",\n\t\"NgayXuat\": \"2020-03-14\",\n\t\"DiaChi\": \"Hoàng Quốc Việt, Bắc Từ Liêm, Hà Nội\",\n\t\"IdNhanVien\": 2,\n\t\"IdKho\": 1,\n\t\"GhiChu\": \"HihiHehe\",\n\t\"Id\": 5,\n\t\"listProduct\": [\n\t\t{\n\t\t\t\"Id\": 1,\n\t\t\t\"SoLuong\": 100,\n\t\t\t\"GhiChu\": \"Làm 5 trăm viên cho vui\"\n\t\t},\n\t\t{\n\t\t\t\"Id\": 2,\n\t\t\t\"SoLuong\": 200,\n\t\t\t\"GhiChu\": \"Làm nghìn viên cho vui\"\n\t\t}\t\n\t]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://cs-manage-store.herokuapp.com/api/export/update-receipt",
+					"protocol": "http",
+					"host": [
+						"cs-manage-store",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"export",
+						"update-receipt"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lấy tất cả phiếu xuất kho",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7IlVzZXJJZCI6MSwiVXNlcm5hbWUiOiJhZG1pbiIsIk5oYW5WaWVuSWQiOjEsIk1hTmhhblZpZW4iOiJOVjAxIiwiVGVuTmhhblZpZW4iOiJIb8OgbmcgVsSDbiBUdXnhu4FuIiwiR2lvaVRpbmgiOmZhbHNlLCJOZ2F5U2luaCI6IjE5OTgtMDYtMTZUMDA6MDA6MDAuMDAwWiIsIkRpYUNoaSI6IlF14bqjbmcgTmluaCIsIlNEVCI6IjA5NjM1NjY3MDMiLCJDTU5EIjoiMTAxMjkxMjU3IiwiRW1haWwiOiJhNWxocC5zd2lmdEBnbWFpbC5jb20iLCJOZ2F5VmFvTGFtIjoiMjAyMC0wMy0xOFQwMDowMDowMC4wMDBaIiwiUm9sZU5hbWUiOiJBZG1pbiJ9LCJpYXQiOjE1ODY4NzQwOTQsImV4cCI6MTU4Njg3NzY5NH0.HLUOZS9tXCYXiTkKgTN0XNMyrZLDfKSz-JD8WbQ7SBA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://cs-manage-store.herokuapp.com/api/export/get-all",
+					"protocol": "http",
+					"host": [
+						"cs-manage-store",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"export",
+						"get-all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lấy chi tiết phiếu xuất kho",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7IlVzZXJJZCI6MSwiVXNlcm5hbWUiOiJhZG1pbiIsIk5oYW5WaWVuSWQiOjEsIk1hTmhhblZpZW4iOiJOVjAxIiwiVGVuTmhhblZpZW4iOiJIb8OgbmcgVsSDbiBUdXnhu4FuIiwiR2lvaVRpbmgiOmZhbHNlLCJOZ2F5U2luaCI6IjE5OTgtMDYtMTZUMDA6MDA6MDAuMDAwWiIsIkRpYUNoaSI6IlF14bqjbmcgTmluaCIsIlNEVCI6IjA5NjM1NjY3MDMiLCJDTU5EIjoiMTAxMjkxMjU3IiwiRW1haWwiOiJhNWxocC5zd2lmdEBnbWFpbC5jb20iLCJOZ2F5VmFvTGFtIjoiMjAyMC0wMy0xOFQwMDowMDowMC4wMDBaIiwiUm9sZU5hbWUiOiJBZG1pbiJ9LCJpYXQiOjE1ODgwMDAxNjUsImV4cCI6MTU4ODAwMzc2NX0.5PdNzrlUYj0wLUio1HNZUbn3LEtpcu67qajjfzNdc-o",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:6969/api/export/get-detail/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6969",
+					"path": [
+						"api",
+						"export",
+						"get-detail",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Thêm phiếu chuyển kho",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7IlVzZXJJZCI6MSwiVXNlcm5hbWUiOiJhZG1pbiIsIk5oYW5WaWVuSWQiOjEsIk1hTmhhblZpZW4iOiJOVjAxIiwiVGVuTmhhblZpZW4iOiJIb8OgbmcgVsSDbiBUdXnhu4FuIiwiR2lvaVRpbmgiOmZhbHNlLCJOZ2F5U2luaCI6IjE5OTgtMDYtMTZUMDA6MDA6MDAuMDAwWiIsIkRpYUNoaSI6IlF14bqjbmcgTmluaCIsIlNEVCI6IjA5NjM1NjY3MDMiLCJDTU5EIjoiMTAxMjkxMjU3IiwiRW1haWwiOiJhNWxocC5zd2lmdEBnbWFpbC5jb20iLCJOZ2F5VmFvTGFtIjoiMjAyMC0wMy0xOFQwMDowMDowMC4wMDBaIiwiUm9sZU5hbWUiOiJBZG1pbiJ9LCJpYXQiOjE1ODY4NzQwOTQsImV4cCI6MTU4Njg3NzY5NH0.HLUOZS9tXCYXiTkKgTN0XNMyrZLDfKSz-JD8WbQ7SBA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"Ma\": \"PC3\",\n\t\"NgayChuyen\": \"2020-03-25\",\n\t\"IdNhanVien\": 2,\n\t\"IdKhoCu\": 1,\n\t\"IdKhoMoi\": 2,\n\t\"GhiChu\": \"Test chuyển kho 3\",\n\t\"listProduct\": [\n\t\t{\n\t\t\t\"Id\": 1,\n\t\t\t\"SoLuong\": 250,\n\t\t\t\"GhiChu\": \"Chuyển tạm 250 chiếc\"\n\t\t},\n\t\t{\n\t\t\t\"Id\": 2,\n\t\t\t\"SoLuong\": 400,\n\t\t\t\"GhiChu\": \"Chuyển tạm 400 chiếc\"\n\t\t}\t\n\t]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://cs-manage-store.herokuapp.com/api/exchange/add-new-receipt",
+					"protocol": "http",
+					"host": [
+						"cs-manage-store",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"exchange",
+						"add-new-receipt"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lấy tất cả phiếu chuyển kho",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7IlVzZXJJZCI6MSwiVXNlcm5hbWUiOiJhZG1pbiIsIk5oYW5WaWVuSWQiOjEsIk1hTmhhblZpZW4iOiJOVjAxIiwiVGVuTmhhblZpZW4iOiJIb8OgbmcgVsSDbiBUdXnhu4FuIiwiR2lvaVRpbmgiOmZhbHNlLCJOZ2F5U2luaCI6IjE5OTgtMDYtMTZUMDA6MDA6MDAuMDAwWiIsIkRpYUNoaSI6IlF14bqjbmcgTmluaCIsIlNEVCI6IjA5NjM1NjY3MDMiLCJDTU5EIjoiMTAxMjkxMjU3IiwiRW1haWwiOiJhNWxocC5zd2lmdEBnbWFpbC5jb20iLCJOZ2F5VmFvTGFtIjoiMjAyMC0wMy0xOFQwMDowMDowMC4wMDBaIiwiUm9sZU5hbWUiOiJBZG1pbiJ9LCJpYXQiOjE1ODY4NzQwOTQsImV4cCI6MTU4Njg3NzY5NH0.HLUOZS9tXCYXiTkKgTN0XNMyrZLDfKSz-JD8WbQ7SBA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://cs-manage-store.herokuapp.com/api/exchange/get-all",
+					"protocol": "http",
+					"host": [
+						"cs-manage-store",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"exchange",
+						"get-all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lấy chi tiết phiếu chuyển kho",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7IlVzZXJJZCI6MSwiVXNlcm5hbWUiOiJhZG1pbiIsIk5oYW5WaWVuSWQiOjEsIk1hTmhhblZpZW4iOiJOVjAxIiwiVGVuTmhhblZpZW4iOiJIb8OgbmcgVsSDbiBUdXnhu4FuIiwiR2lvaVRpbmgiOmZhbHNlLCJOZ2F5U2luaCI6IjE5OTgtMDYtMTZUMDA6MDA6MDAuMDAwWiIsIkRpYUNoaSI6IlF14bqjbmcgTmluaCIsIlNEVCI6IjA5NjM1NjY3MDMiLCJDTU5EIjoiMTAxMjkxMjU3IiwiRW1haWwiOiJhNWxocC5zd2lmdEBnbWFpbC5jb20iLCJOZ2F5VmFvTGFtIjoiMjAyMC0wMy0xOFQwMDowMDowMC4wMDBaIiwiUm9sZU5hbWUiOiJBZG1pbiJ9LCJpYXQiOjE1ODY4NzQwOTQsImV4cCI6MTU4Njg3NzY5NH0.HLUOZS9tXCYXiTkKgTN0XNMyrZLDfKSz-JD8WbQ7SBA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://cs-manage-store.herokuapp.com/api/exchange/get-detail/2",
+					"protocol": "http",
+					"host": [
+						"cs-manage-store",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"exchange",
+						"get-detail",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

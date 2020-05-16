@@ -52,6 +52,7 @@
     <Compile Include="NhapKho.cs" />
     <Compile Include="NhomVatTu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResponseData.cs" />
     <Compile Include="Roles.cs" />
     <Compile Include="User.cs" />
     <Compile Include="VatTu.cs" />

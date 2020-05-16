@@ -31,19 +31,18 @@ namespace QuanLyKho
             string password = txtMatKhau.Text;
             bool saveInfo = chkLuuThongTinDangNhap.Checked;
             var result = await UserService.DangNhap(username, password);
-            var loginSuccess = true;
-            if (result[loginSuccess] == Config.CODE_OK)
+            if (result.Status == Config.CODE_OK && (bool)result.Data)
             {
                 MessageBoxEx.Show(ResponseMessage.Login_Success, "Thông báo");
                 this.Close();
             }
-            else if (result[loginSuccess] == Config.CODE_UNAUTHORIZED)
+            else if (result.Status == Config.CODE_UNAUTHORIZED && !(bool)result.Data)
             {
-                MessageBoxEx.Show(ResponseMessage.Login_Fail, "Thông báo");
+                MessageBoxEx.Show(result.Message, "Thông báo");
             }
             else
             {
-                MessageBoxEx.Show(ResponseMessage.Login_Error, "Thông báo");
+                MessageBoxEx.Show(result.Message, "Thông báo");
             }
         }
     }

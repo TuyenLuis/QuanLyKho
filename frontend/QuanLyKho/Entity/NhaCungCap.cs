@@ -15,6 +15,6 @@ namespace Entity
         public string SDT { get; set; }
         public string Email { get; set; }
         public string NguoiDaiDien { get; set; }
-        public bool IsActive { get; set; }
+        public bool? IsActive { get; set; }
     }
 }

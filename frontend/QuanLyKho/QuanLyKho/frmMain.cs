@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Entity;
+using Constant;
 using DevComponents.DotNetBar;
 
 namespace QuanLyKho
@@ -169,6 +171,77 @@ namespace QuanLyKho
         private void RemoveAllTabItems()
         {
             TabContainer.Tabs.Clear();
+        }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+            _frmMain = this;
+            DisableControl();
+            if (Common.frmDangNhap == null || Common.frmDangNhap.IsDisposed)
+            {
+                Common.frmDangNhap = new frmDangNhap();
+            }
+            Common.frmDangNhap.ShowDialog();
+            if (UserResponse.Id != 0)
+            {
+                toolHienThi.Text = "Xin chào " + UserResponse.NhanVien.Ten + ". Chúc bạn 1 ngày làm việc tốt lành!";
+                buttonItemDangNhapVoiQuyen.Text = "Xin chào " + UserResponse.NhanVien.Ten;
+                CheckPhanQuyen();
+            }
+            else
+            {
+                DisableControl();
+            }
+        }
+
+        private void CheckPhanQuyen()
+        {
+            if (UserResponse.Roles.Name == Config.ROLE_ADMIN)
+            {
+                buttonItemMenuChuyenTaiKhoanKhac.Enabled = true;
+                buttonItemMenuDoiMatKhau.Enabled = true;
+                btnItemChuyenSangTaiKhoanKhac.Enabled = true;
+                btnItemDoiMatKhau.Enabled = true;
+                btnItemHoSoNhanVien.Enabled = true;
+                btnItemNhaCungCap.Enabled = true;
+                btnItemVatTu.Enabled = true;
+                btnItemNhomVatTu.Enabled = true;
+                btnItemKho.Enabled = true;
+                btnItemNhapKho.Enabled = true;
+                btnItemXuatKho.Enabled = true;
+                btnItemChuyenKho.Enabled = true;
+            }
+            else if (UserResponse.Roles.Name == Config.ROLE_EMPLOYEE)
+            {
+                buttonItemMenuChuyenTaiKhoanKhac.Enabled = true;
+                buttonItemMenuDoiMatKhau.Enabled = false;
+                btnItemChuyenSangTaiKhoanKhac.Enabled = true;
+                btnItemDoiMatKhau.Enabled = false;
+                btnItemHoSoNhanVien.Enabled = false;
+                btnItemNhaCungCap.Enabled = true;
+                btnItemVatTu.Enabled = true;
+                btnItemNhomVatTu.Enabled = true;
+                btnItemKho.Enabled = false;
+                btnItemNhapKho.Enabled = true;
+                btnItemXuatKho.Enabled = true;
+                btnItemChuyenKho.Enabled = true;
+            }
+        }
+
+        private void DisableControl()
+        {
+            buttonItemMenuChuyenTaiKhoanKhac.Enabled = false;
+            buttonItemMenuDoiMatKhau.Enabled = false;
+            btnItemChuyenSangTaiKhoanKhac.Enabled = false;
+            btnItemDoiMatKhau.Enabled = false;
+            btnItemHoSoNhanVien.Enabled = false;
+            btnItemNhaCungCap.Enabled = false;
+            btnItemVatTu.Enabled = false;
+            btnItemNhomVatTu.Enabled = false;
+            btnItemKho.Enabled = false;
+            btnItemNhapKho.Enabled = false;
+            btnItemXuatKho.Enabled = false;
+            btnItemChuyenKho.Enabled = false;
         }
     }
 }

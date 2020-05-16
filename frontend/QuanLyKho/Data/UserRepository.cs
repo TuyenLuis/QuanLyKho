@@ -3,10 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Web.Mvc;
-using System.Web;
 using RestSharp;
-using RestSharp.Authenticators;
 using Constant;
 using Entity;
 
@@ -28,7 +25,7 @@ namespace Data
             }
         }
 
-        public async Task<Dictionary<bool, int>> DangNhap(string username, string password)
+        public async Task<ResponseData> DangNhap(string username, string password)
         {
             try
             {
@@ -43,9 +40,11 @@ namespace Data
 
                 });
                 var response = await client.ExecuteTaskAsync(request);
+                var responseParse = Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(response.Content);
+
                 if (response.StatusCode == System.Net.HttpStatusCode.OK)
                 {
-                    var responseParse = Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(response.Content);
+
                     UserResponse.AccessToken = responseParse["accessToken"];
                     UserResponse.RefreshToken = responseParse["refreshToken"];
                     var employeeInfo = responseParse["employee"];
@@ -69,15 +68,30 @@ namespace Data
                         NgayVaoLam = employeeInfo["NgayVaoLam"]
                     };
 
-                    return new Dictionary<bool, int>() { { true, Config.CODE_OK } };
+                    return new ResponseData()
+                    {
+                        Status = Config.CODE_OK,
+                        Data = true,
+                        Message = ""
+                    };
                 }
                 else if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
                 {
-                    return new Dictionary<bool, int>() { { true, Config.CODE_UNAUTHORIZED } };
+                    return new ResponseData()
+                    {
+                        Status = Config.CODE_UNAUTHORIZED,
+                        Data = true,
+                        Message = responseParse["message"]
+                    };
                 }
                 else if (response.StatusCode == System.Net.HttpStatusCode.InternalServerError)
                 {
-                    return new Dictionary<bool, int>() { { false, Config.CODE_SERVER_ERROR } };
+                    return new ResponseData()
+                    {
+                        Status = Config.CODE_SERVER_ERROR,
+                        Data = false,
+                        Message = responseParse["message"]
+                    };
                 }
                 else
                 {

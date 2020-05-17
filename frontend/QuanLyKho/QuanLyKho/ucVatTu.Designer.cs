@@ -39,6 +39,7 @@
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.txtIdVatTu = new System.Windows.Forms.TextBox();
             this.groupPanel2 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.comboBoxEx2 = new DevComponents.DotNetBar.Controls.ComboBoxEx();
@@ -57,7 +58,7 @@
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.txtDonGiaBan = new System.Windows.Forms.TextBox();
             this.txtDonGiaNhap = new System.Windows.Forms.TextBox();
-            this.txtSoLuong = new System.Windows.Forms.TextBox();
+            this.txtDonViTinh = new System.Windows.Forms.TextBox();
             this.txtTenVatTu = new System.Windows.Forms.TextBox();
             this.txtMaVatTu = new System.Windows.Forms.TextBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -147,7 +148,8 @@
             this.columnHeader4,
             this.columnHeader5,
             this.columnHeader6,
-            this.columnHeader7});
+            this.columnHeader7,
+            this.columnHeader8});
             this.lvVatTu.DisabledBackColor = System.Drawing.Color.Empty;
             this.lvVatTu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvVatTu.FullRowSelect = true;
@@ -187,18 +189,22 @@
             // 
             // columnHeader5
             // 
-            this.columnHeader5.Text = "Số lượng";
+            this.columnHeader5.Text = "Số Lượng";
             this.columnHeader5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader5.Width = 61;
+            this.columnHeader5.Width = 95;
             // 
             // columnHeader6
             // 
-            this.columnHeader6.Text = "Nhóm Vật Tư";
+            this.columnHeader6.Text = "Đơn Vị Tính";
             this.columnHeader6.Width = 115;
             // 
             // columnHeader7
             // 
-            this.columnHeader7.Text = "Nhà Cung Cấp";
+            this.columnHeader7.Text = "Nhóm Vật Tư";
+            // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "Nhà Cung Cấp";
             // 
             // txtIdVatTu
             // 
@@ -225,7 +231,7 @@
             this.groupPanel2.Controls.Add(this.labelX1);
             this.groupPanel2.Controls.Add(this.txtDonGiaBan);
             this.groupPanel2.Controls.Add(this.txtDonGiaNhap);
-            this.groupPanel2.Controls.Add(this.txtSoLuong);
+            this.groupPanel2.Controls.Add(this.txtDonViTinh);
             this.groupPanel2.Controls.Add(this.txtTenVatTu);
             this.groupPanel2.Controls.Add(this.txtMaVatTu);
             this.groupPanel2.DisabledBackColor = System.Drawing.Color.Empty;
@@ -365,7 +371,7 @@
             this.labelX6.Name = "labelX6";
             this.labelX6.Size = new System.Drawing.Size(136, 28);
             this.labelX6.TabIndex = 20;
-            this.labelX6.Text = "Số lượng:";
+            this.labelX6.Text = "Đơn Vị Tính";
             // 
             // labelX5
             // 
@@ -453,7 +459,7 @@
             this.txtDonGiaBan.Margin = new System.Windows.Forms.Padding(4);
             this.txtDonGiaBan.Name = "txtDonGiaBan";
             this.txtDonGiaBan.Size = new System.Drawing.Size(391, 22);
-            this.txtDonGiaBan.TabIndex = 11;
+            this.txtDonGiaBan.TabIndex = 3;
             // 
             // txtDonGiaNhap
             // 
@@ -463,17 +469,17 @@
             this.txtDonGiaNhap.Margin = new System.Windows.Forms.Padding(4);
             this.txtDonGiaNhap.Name = "txtDonGiaNhap";
             this.txtDonGiaNhap.Size = new System.Drawing.Size(341, 22);
-            this.txtDonGiaNhap.TabIndex = 11;
+            this.txtDonGiaNhap.TabIndex = 2;
             // 
-            // txtSoLuong
+            // txtDonViTinh
             // 
-            this.txtSoLuong.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtDonViTinh.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSoLuong.Location = new System.Drawing.Point(208, 164);
-            this.txtSoLuong.Margin = new System.Windows.Forms.Padding(4);
-            this.txtSoLuong.Name = "txtSoLuong";
-            this.txtSoLuong.Size = new System.Drawing.Size(893, 22);
-            this.txtSoLuong.TabIndex = 11;
+            this.txtDonViTinh.Location = new System.Drawing.Point(208, 164);
+            this.txtDonViTinh.Margin = new System.Windows.Forms.Padding(4);
+            this.txtDonViTinh.Name = "txtDonViTinh";
+            this.txtDonViTinh.Size = new System.Drawing.Size(893, 22);
+            this.txtDonViTinh.TabIndex = 4;
             // 
             // txtTenVatTu
             // 
@@ -483,7 +489,7 @@
             this.txtTenVatTu.Margin = new System.Windows.Forms.Padding(4);
             this.txtTenVatTu.Name = "txtTenVatTu";
             this.txtTenVatTu.Size = new System.Drawing.Size(893, 22);
-            this.txtTenVatTu.TabIndex = 11;
+            this.txtTenVatTu.TabIndex = 1;
             // 
             // txtMaVatTu
             // 
@@ -552,10 +558,11 @@
         private DevComponents.DotNetBar.LabelX labelX1;
         private System.Windows.Forms.TextBox txtDonGiaBan;
         private System.Windows.Forms.TextBox txtDonGiaNhap;
-        private System.Windows.Forms.TextBox txtSoLuong;
+        private System.Windows.Forms.TextBox txtDonViTinh;
         private System.Windows.Forms.TextBox txtTenVatTu;
         private System.Windows.Forms.TextBox txtMaVatTu;
         private System.Windows.Forms.TextBox txtIdVatTu;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ColumnHeader columnHeader8;
     }
 }

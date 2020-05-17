@@ -11,7 +11,7 @@ namespace Entity
         public int Id { get; set; }
         public string Ma { get; set; }
         public string Ten { get; set; }
-        public bool GioiTinh { get; set; }
+        public bool ?  GioiTinh { get; set; }
         public DateTime NgaySinh { get; set; }
         public string DiaChi { get; set; }
         public string CMND { get; set; }

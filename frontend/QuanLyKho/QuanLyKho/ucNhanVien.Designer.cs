@@ -37,6 +37,7 @@
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.txtIdNhanVien = new System.Windows.Forms.TextBox();
             this.groupPanel2 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.rdNu = new System.Windows.Forms.RadioButton();
             this.rdNam = new System.Windows.Forms.RadioButton();
@@ -62,7 +63,6 @@
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtTennhanVien = new System.Windows.Forms.TextBox();
             this.txtManhanVien = new System.Windows.Forms.TextBox();
-            this.txtIdNhanVien = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -198,6 +198,14 @@
             this.columnHeader6.Text = "SĐT";
             this.columnHeader6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader6.Width = 102;
+            // 
+            // txtIdNhanVien
+            // 
+            this.txtIdNhanVien.Location = new System.Drawing.Point(220, 36);
+            this.txtIdNhanVien.Name = "txtIdNhanVien";
+            this.txtIdNhanVien.Size = new System.Drawing.Size(100, 22);
+            this.txtIdNhanVien.TabIndex = 1;
+            this.txtIdNhanVien.Visible = false;
             // 
             // groupPanel2
             // 
@@ -564,7 +572,7 @@
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtDiaChi.Size = new System.Drawing.Size(776, 178);
-            this.txtDiaChi.TabIndex = 15;
+            this.txtDiaChi.TabIndex = 5;
             // 
             // txtSDT
             // 
@@ -574,7 +582,7 @@
             this.txtSDT.Margin = new System.Windows.Forms.Padding(4);
             this.txtSDT.Name = "txtSDT";
             this.txtSDT.Size = new System.Drawing.Size(200, 22);
-            this.txtSDT.TabIndex = 11;
+            this.txtSDT.TabIndex = 3;
             // 
             // txtCMND
             // 
@@ -584,7 +592,7 @@
             this.txtCMND.Margin = new System.Windows.Forms.Padding(4);
             this.txtCMND.Name = "txtCMND";
             this.txtCMND.Size = new System.Drawing.Size(205, 22);
-            this.txtCMND.TabIndex = 11;
+            this.txtCMND.TabIndex = 2;
             // 
             // txtEmail
             // 
@@ -594,7 +602,7 @@
             this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(776, 22);
-            this.txtEmail.TabIndex = 11;
+            this.txtEmail.TabIndex = 4;
             // 
             // txtTennhanVien
             // 
@@ -604,7 +612,7 @@
             this.txtTennhanVien.Margin = new System.Windows.Forms.Padding(4);
             this.txtTennhanVien.Name = "txtTennhanVien";
             this.txtTennhanVien.Size = new System.Drawing.Size(313, 22);
-            this.txtTennhanVien.TabIndex = 11;
+            this.txtTennhanVien.TabIndex = 1;
             // 
             // txtManhanVien
             // 
@@ -616,14 +624,6 @@
             this.txtManhanVien.ReadOnly = true;
             this.txtManhanVien.Size = new System.Drawing.Size(76, 22);
             this.txtManhanVien.TabIndex = 9;
-            // 
-            // txtIdNhanVien
-            // 
-            this.txtIdNhanVien.Location = new System.Drawing.Point(220, 36);
-            this.txtIdNhanVien.Name = "txtIdNhanVien";
-            this.txtIdNhanVien.Size = new System.Drawing.Size(100, 22);
-            this.txtIdNhanVien.TabIndex = 1;
-            this.txtIdNhanVien.Visible = false;
             // 
             // ucNhanVien
             // 

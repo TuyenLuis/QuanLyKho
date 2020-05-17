@@ -46,6 +46,7 @@ namespace QuanLyKho
                     listViewItem.SubItems.Add(vatTu.DonGiaNhap.ToString());
                     listViewItem.SubItems.Add(vatTu.DonGia.ToString());
                     listViewItem.SubItems.Add(vatTu.SoLuong.ToString());
+                    listViewItem.SubItems.Add(vatTu.DonViTinh);
                     listViewItem.SubItems.Add(vatTu.TenNhomVatTu);
                     listViewItem.SubItems.Add(vatTu.TenNhaCungCap);
                     lvVatTu.Items.Add(listViewItem);
@@ -69,7 +70,7 @@ namespace QuanLyKho
         {
             txtMaVatTu.Text = "";
             txtTenVatTu.Text = "";
-            txtSoLuong.Text = "";
+            txtDonViTinh.Text = "";
             txtDonGiaBan.Text = "";
             txtDonGiaNhap.Text = "";
         }
@@ -84,9 +85,9 @@ namespace QuanLyKho
                 txtTenVatTu.Text = lvItem.SubItems[1].Text;
                 txtDonGiaNhap.Text = lvItem.SubItems[2].Text;
                 txtDonGiaBan.Text = lvItem.SubItems[3].Text;
-                txtSoLuong.Text = lvItem.SubItems[4].Text;
-                comboBoxEx1.Text = lvItem.SubItems[5].Text;
-                comboBoxEx2.Text = lvItem.SubItems[6].Text;
+                txtDonViTinh.Text = lvItem.SubItems[5].Text;
+                comboBoxEx1.Text = lvItem.SubItems[6].Text;
+                comboBoxEx2.Text = lvItem.SubItems[7].Text;
             }
         }
 
@@ -94,7 +95,7 @@ namespace QuanLyKho
         {
             txtMaVatTu.Text = UtilitiesService.AutoGenarateCode(Config.P_VT);
             txtTenVatTu.Text = "";
-            txtSoLuong.Text = "";
+            txtDonViTinh.Text = "";
             txtDonGiaBan.Text = "";
             txtDonGiaNhap.Text = "";
             currentVatTu = new VatTu();
@@ -109,7 +110,7 @@ namespace QuanLyKho
                 currentVatTu.Ten = txtTenVatTu.Text;
                 currentVatTu.DonGiaNhap = int.Parse(txtDonGiaNhap.Text);
                 currentVatTu.DonGia = int.Parse(txtDonGiaBan.Text);
-                currentVatTu.SoLuong = int.Parse(txtSoLuong.Text);
+                currentVatTu.DonViTinh = txtDonViTinh.Text;
                 currentVatTu.IdNhomVatTu = comboBoxEx1.SelectedValue.ToString();
                 currentVatTu.IdNhaCungCap = comboBoxEx2.SelectedValue.ToString();
 
@@ -122,7 +123,7 @@ namespace QuanLyKho
                 currentVatTu.Ten = txtTenVatTu.Text;
                 currentVatTu.DonGiaNhap = int.Parse(txtDonGiaNhap.Text);
                 currentVatTu.DonGia = int.Parse(txtDonGiaBan.Text);
-                currentVatTu.SoLuong = int.Parse(txtSoLuong.Text);
+                currentVatTu.DonViTinh = txtDonViTinh.Text;
                 currentVatTu.IdNhomVatTu = comboBoxEx1.SelectedValue.ToString();
                 currentVatTu.IdNhaCungCap = comboBoxEx2.SelectedValue.ToString();
 

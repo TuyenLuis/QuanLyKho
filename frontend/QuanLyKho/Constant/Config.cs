@@ -18,6 +18,9 @@ namespace Constant
         public static string ROLE_ADMIN = "Admin";
         public static string ROLE_EMPLOYEE = "Employee";
         public static string P_NHACC = "NCC";
+        public static string P_NVT = "NVT";
+        public static string P_VT = "VT";
+        public static string P_NV = "NV";
     }
 
 }

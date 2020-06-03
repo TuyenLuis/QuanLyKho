@@ -69,13 +69,15 @@ namespace Data
                 string url = string.Format("{0}/api/employee/add-new-employee", Config.HOST);
                 var client = new RestSharp.RestClient(url);
                 var request = new RestSharp.RestRequest(Method.POST);
+                var gioiTinh = false;
                 request.AddHeader("content-type", "application/json; charset=utf-8");
                 request.AddHeader("x-access-token", UserResponse.AccessToken);
+                if (nhanVien.GioiTinh == true) gioiTinh = true; 
                 request.AddJsonBody(new
                 {
                     ma = nhanVien.Ma,
                     ten = nhanVien.Ten,
-                    gioiTinh = nhanVien.GioiTinh,
+                    gioiTinh = gioiTinh,
                     ngaySinh = nhanVien.NgaySinh,
                     diaChi = nhanVien.DiaChi,
                     CMND = nhanVien.CMND,

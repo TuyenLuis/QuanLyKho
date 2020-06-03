@@ -33,6 +33,7 @@
             this.lvNhomVatTu = new DevComponents.DotNetBar.Controls.ListViewEx();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.txtIdNhomVatTu = new System.Windows.Forms.TextBox();
             this.groupPanel2 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnThoat = new DevComponents.DotNetBar.ButtonX();
@@ -43,7 +44,6 @@
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.txtTenNhomVatTu = new System.Windows.Forms.TextBox();
             this.txtMaNhomVatTu = new System.Windows.Forms.TextBox();
-            this.txtIdNhomVatTu = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -150,6 +150,14 @@
             // 
             this.columnHeader2.Text = "Tên";
             this.columnHeader2.Width = 69;
+            // 
+            // txtIdNhomVatTu
+            // 
+            this.txtIdNhomVatTu.Location = new System.Drawing.Point(234, 34);
+            this.txtIdNhomVatTu.Name = "txtIdNhomVatTu";
+            this.txtIdNhomVatTu.Size = new System.Drawing.Size(100, 22);
+            this.txtIdNhomVatTu.TabIndex = 1;
+            this.txtIdNhomVatTu.Visible = false;
             // 
             // groupPanel2
             // 
@@ -293,7 +301,7 @@
             this.txtTenNhomVatTu.Margin = new System.Windows.Forms.Padding(4);
             this.txtTenNhomVatTu.Name = "txtTenNhomVatTu";
             this.txtTenNhomVatTu.Size = new System.Drawing.Size(865, 22);
-            this.txtTenNhomVatTu.TabIndex = 11;
+            this.txtTenNhomVatTu.TabIndex = 1;
             // 
             // txtMaNhomVatTu
             // 
@@ -305,14 +313,6 @@
             this.txtMaNhomVatTu.ReadOnly = true;
             this.txtMaNhomVatTu.Size = new System.Drawing.Size(165, 22);
             this.txtMaNhomVatTu.TabIndex = 9;
-            // 
-            // txtIdNhomVatTu
-            // 
-            this.txtIdNhomVatTu.Location = new System.Drawing.Point(234, 34);
-            this.txtIdNhomVatTu.Name = "txtIdNhomVatTu";
-            this.txtIdNhomVatTu.Size = new System.Drawing.Size(100, 22);
-            this.txtIdNhomVatTu.TabIndex = 1;
-            this.txtIdNhomVatTu.Visible = false;
             // 
             // ucNhomVatTu
             // 

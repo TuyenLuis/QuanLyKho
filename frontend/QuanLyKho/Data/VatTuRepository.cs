@@ -77,7 +77,7 @@ namespace Data
                     ten = vatTu.Ten,
                     donGia = vatTu.DonGia,
                     donGiaNhap = vatTu.DonGiaNhap,
-                    soLuong = vatTu.SoLuong,
+                    donViTinh = vatTu.DonViTinh,
                     idNhomVatTu = vatTu.NhomVatTu,
                     idNhaCungCap = vatTu.NhaCungCap
                 });
@@ -121,7 +121,7 @@ namespace Data
                     ten = vatTu.Ten,
                     donGia = vatTu.DonGia,
                     donGiaNhap = vatTu.DonGiaNhap,
-                    soLuong = vatTu.SoLuong,
+                    donViTinh = vatTu.DonViTinh,
                     idNhomVatTu = int.Parse(vatTu.IdNhomVatTu),
                     idNhaCungCap = int.Parse(vatTu.IdNhaCungCap),
                     productId = vatTu.Id,

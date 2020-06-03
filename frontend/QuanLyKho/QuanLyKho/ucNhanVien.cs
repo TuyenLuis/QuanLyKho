@@ -95,7 +95,7 @@ namespace QuanLyKho
                 txtCMND.Text = lvItem.SubItems[5].Text;
                 txtSDT.Text = lvItem.SubItems[6].Text;
                 txtEmail.Text = lvItem.SubItems[7].Text;
-                dateTimeInput2.Value = DateTime.Parse(lvItem.SubItems[8].Text);
+                dateTimeInput2.Value = DateTime.Parse(lvItem.SubItems[8].Text).Date;
             }
         }
 
@@ -126,9 +126,9 @@ namespace QuanLyKho
                 currentnhanVien.Email = txtEmail.Text;
                 currentnhanVien.SDT = txtSDT.Text;
                 currentnhanVien.CMND = txtCMND.Text;
-                currentnhanVien.NgaySinh = dateTimeInput1.Value;
+                currentnhanVien.NgaySinh = dateTimeInput1.Value.AddDays(1);
                 currentnhanVien.GioiTinh = rdNu.Checked;
-                currentnhanVien.NgayVaoLam = dateTimeInput2.Value;
+                currentnhanVien.NgayVaoLam = dateTimeInput2.Value.AddDays(1);
 
                 result = await NhanVienService.ThemNhanVien(currentnhanVien);
             }
@@ -141,9 +141,9 @@ namespace QuanLyKho
                 currentnhanVien.Email = txtEmail.Text;
                 currentnhanVien.SDT = txtSDT.Text;
                 currentnhanVien.CMND = txtCMND.Text;
-                currentnhanVien.NgaySinh = dateTimeInput1.Value;
+                currentnhanVien.NgaySinh = dateTimeInput1.Value.AddDays(1);
                 currentnhanVien.GioiTinh = rdNu.Checked ? true : false;
-                currentnhanVien.NgayVaoLam = dateTimeInput2.Value;
+                currentnhanVien.NgayVaoLam = dateTimeInput2.Value.AddDays(1);
                 currentnhanVien.Id = int.Parse(txtIdNhanVien.Text);
 
                 result = await NhanVienService.CapNhatNhanVien(currentnhanVien);

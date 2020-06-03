@@ -1,6 +1,6 @@
 import sql from 'mssql'
 import dotenv from 'dotenv'
-// dotenv.config({ path: process.cwd() + '/sh/.env' })
+dotenv.config({ path: process.cwd() + '/sh/.env' })
 
 export const pool = new sql.ConnectionPool({
   user: process.env.DB_USERNAME,

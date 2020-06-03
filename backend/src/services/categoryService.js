@@ -89,6 +89,7 @@ const getListProductsByCategory = (pool, categoryId) => {
             V.Ten,
             V.DonGia,
             V.DonGiaNhap,
+            V.DonViTinh,
             V.IdNhomVatTu,
             N.Ten AS TenNhomVatTu,
             V.IdNhaCungCap,

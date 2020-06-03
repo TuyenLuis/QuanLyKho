@@ -8,7 +8,8 @@ namespace Constant
 {
     public class Config
     {
-        public static string HOST = "http://cs-manage-store.herokuapp.com";
+        // public static string HOST = "http://cs-manage-store.herokuapp.com";
+        public static string HOST = "http://quanlykho-cs.herokuapp.com";
         // public static string HOST = "http://localhost:6969";
         public static int CODE_OK = 200;
         public static int CODE_UNAUTHORIZED = 401;
@@ -21,6 +22,7 @@ namespace Constant
         public static string P_NVT = "NVT";
         public static string P_VT = "VT";
         public static string P_NV = "NV";
+        public static string P_KHO = "K";
     }
 
 }

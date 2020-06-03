@@ -30,7 +30,7 @@
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
-            this.lvPhongBan = new DevComponents.DotNetBar.Controls.ListViewEx();
+            this.lvKho = new DevComponents.DotNetBar.Controls.ListViewEx();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -38,23 +38,24 @@
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupPanel2 = new DevComponents.DotNetBar.Controls.GroupPanel();
-            this.comboBoxEx1 = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.cboQuanLy = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnThoat = new DevComponents.DotNetBar.ButtonX();
             this.btnXoa = new DevComponents.DotNetBar.ButtonX();
             this.btnLuu = new DevComponents.DotNetBar.ButtonX();
             this.btnThem = new DevComponents.DotNetBar.ButtonX();
+            this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.labelX6 = new DevComponents.DotNetBar.LabelX();
             this.labelX5 = new DevComponents.DotNetBar.LabelX();
             this.labelX4 = new DevComponents.DotNetBar.LabelX();
             this.labelX3 = new DevComponents.DotNetBar.LabelX();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.txtTenPB = new System.Windows.Forms.TextBox();
-            this.txtMaPB = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.labelX2 = new DevComponents.DotNetBar.LabelX();
+            this.txtSDT = new System.Windows.Forms.TextBox();
+            this.txtGhiChu = new System.Windows.Forms.TextBox();
+            this.txtDiaChi = new System.Windows.Forms.TextBox();
+            this.txtTenKho = new System.Windows.Forms.TextBox();
+            this.txtMaKho = new System.Windows.Forms.TextBox();
+            this.txtIdKho = new DevComponents.DotNetBar.LabelX();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -86,7 +87,7 @@
             this.groupPanel1.BackColor = System.Drawing.Color.Transparent;
             this.groupPanel1.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.groupPanel1.Controls.Add(this.lvPhongBan);
+            this.groupPanel1.Controls.Add(this.lvKho);
             this.groupPanel1.DisabledBackColor = System.Drawing.Color.Empty;
             this.groupPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupPanel1.Location = new System.Drawing.Point(0, 0);
@@ -123,32 +124,33 @@
             this.groupPanel1.TabIndex = 0;
             this.groupPanel1.Text = "Danh Sách Kho";
             // 
-            // lvPhongBan
+            // lvKho
             // 
             // 
             // 
             // 
-            this.lvPhongBan.Border.Class = "ListViewBorder";
-            this.lvPhongBan.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.lvPhongBan.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.lvKho.Border.Class = "ListViewBorder";
+            this.lvKho.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.lvKho.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3,
             this.columnHeader4,
             this.columnHeader5,
             this.columnHeader6});
-            this.lvPhongBan.DisabledBackColor = System.Drawing.Color.Empty;
-            this.lvPhongBan.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lvPhongBan.FullRowSelect = true;
-            this.lvPhongBan.GridLines = true;
-            this.lvPhongBan.HideSelection = false;
-            this.lvPhongBan.Location = new System.Drawing.Point(0, 0);
-            this.lvPhongBan.MultiSelect = false;
-            this.lvPhongBan.Name = "lvPhongBan";
-            this.lvPhongBan.Size = new System.Drawing.Size(417, 624);
-            this.lvPhongBan.TabIndex = 3;
-            this.lvPhongBan.UseCompatibleStateImageBehavior = false;
-            this.lvPhongBan.View = System.Windows.Forms.View.Details;
+            this.lvKho.DisabledBackColor = System.Drawing.Color.Empty;
+            this.lvKho.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lvKho.FullRowSelect = true;
+            this.lvKho.GridLines = true;
+            this.lvKho.HideSelection = false;
+            this.lvKho.Location = new System.Drawing.Point(0, 0);
+            this.lvKho.MultiSelect = false;
+            this.lvKho.Name = "lvKho";
+            this.lvKho.Size = new System.Drawing.Size(417, 624);
+            this.lvKho.TabIndex = 3;
+            this.lvKho.UseCompatibleStateImageBehavior = false;
+            this.lvKho.View = System.Windows.Forms.View.Details;
+            this.lvKho.SelectedIndexChanged += new System.EventHandler(this.lvKho_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
@@ -187,7 +189,8 @@
             this.groupPanel2.BackColor = System.Drawing.Color.Transparent;
             this.groupPanel2.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.groupPanel2.Controls.Add(this.comboBoxEx1);
+            this.groupPanel2.Controls.Add(this.txtIdKho);
+            this.groupPanel2.Controls.Add(this.cboQuanLy);
             this.groupPanel2.Controls.Add(this.panel1);
             this.groupPanel2.Controls.Add(this.labelX2);
             this.groupPanel2.Controls.Add(this.labelX6);
@@ -195,11 +198,11 @@
             this.groupPanel2.Controls.Add(this.labelX4);
             this.groupPanel2.Controls.Add(this.labelX3);
             this.groupPanel2.Controls.Add(this.labelX1);
-            this.groupPanel2.Controls.Add(this.textBox1);
-            this.groupPanel2.Controls.Add(this.textBox2);
-            this.groupPanel2.Controls.Add(this.textBox3);
-            this.groupPanel2.Controls.Add(this.txtTenPB);
-            this.groupPanel2.Controls.Add(this.txtMaPB);
+            this.groupPanel2.Controls.Add(this.txtSDT);
+            this.groupPanel2.Controls.Add(this.txtGhiChu);
+            this.groupPanel2.Controls.Add(this.txtDiaChi);
+            this.groupPanel2.Controls.Add(this.txtTenKho);
+            this.groupPanel2.Controls.Add(this.txtMaKho);
             this.groupPanel2.DisabledBackColor = System.Drawing.Color.Empty;
             this.groupPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupPanel2.Location = new System.Drawing.Point(0, 0);
@@ -236,17 +239,17 @@
             this.groupPanel2.TabIndex = 0;
             this.groupPanel2.Text = "Thông Tin";
             // 
-            // comboBoxEx1
+            // cboQuanLy
             // 
-            this.comboBoxEx1.DisplayMember = "Text";
-            this.comboBoxEx1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.comboBoxEx1.FormattingEnabled = true;
-            this.comboBoxEx1.ItemHeight = 14;
-            this.comboBoxEx1.Location = new System.Drawing.Point(156, 133);
-            this.comboBoxEx1.Name = "comboBoxEx1";
-            this.comboBoxEx1.Size = new System.Drawing.Size(332, 20);
-            this.comboBoxEx1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.comboBoxEx1.TabIndex = 22;
+            this.cboQuanLy.DisplayMember = "Text";
+            this.cboQuanLy.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboQuanLy.FormattingEnabled = true;
+            this.cboQuanLy.ItemHeight = 14;
+            this.cboQuanLy.Location = new System.Drawing.Point(156, 133);
+            this.cboQuanLy.Name = "cboQuanLy";
+            this.cboQuanLy.Size = new System.Drawing.Size(332, 20);
+            this.cboQuanLy.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.cboQuanLy.TabIndex = 22;
             // 
             // panel1
             // 
@@ -269,6 +272,7 @@
             this.btnThoat.Size = new System.Drawing.Size(75, 23);
             this.btnThoat.TabIndex = 5;
             this.btnThoat.Text = "Thoát";
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // btnXoa
             // 
@@ -279,6 +283,7 @@
             this.btnXoa.Size = new System.Drawing.Size(75, 23);
             this.btnXoa.TabIndex = 4;
             this.btnXoa.Text = "Xóa";
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnLuu
             // 
@@ -289,6 +294,7 @@
             this.btnLuu.Size = new System.Drawing.Size(75, 23);
             this.btnLuu.TabIndex = 3;
             this.btnLuu.Text = "Lưu Lại";
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // btnThem
             // 
@@ -299,6 +305,19 @@
             this.btnThem.Size = new System.Drawing.Size(75, 23);
             this.btnThem.TabIndex = 2;
             this.btnThem.Text = "Thêm Mới";
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
+            // 
+            // labelX2
+            // 
+            // 
+            // 
+            // 
+            this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX2.Location = new System.Drawing.Point(48, 299);
+            this.labelX2.Name = "labelX2";
+            this.labelX2.Size = new System.Drawing.Size(102, 23);
+            this.labelX2.TabIndex = 20;
+            this.labelX2.Text = "Ghi Chú:";
             // 
             // labelX6
             // 
@@ -360,65 +379,65 @@
             this.labelX1.TabIndex = 16;
             this.labelX1.Text = "Mã Kho:";
             // 
-            // textBox1
+            // txtSDT
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtSDT.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(156, 97);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(332, 20);
-            this.textBox1.TabIndex = 11;
+            this.txtSDT.Location = new System.Drawing.Point(156, 97);
+            this.txtSDT.Name = "txtSDT";
+            this.txtSDT.Size = new System.Drawing.Size(332, 20);
+            this.txtSDT.TabIndex = 11;
             // 
-            // textBox3
+            // txtGhiChu
             // 
-            this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtGhiChu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox3.Location = new System.Drawing.Point(156, 173);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(660, 110);
-            this.textBox3.TabIndex = 11;
+            this.txtGhiChu.Location = new System.Drawing.Point(156, 302);
+            this.txtGhiChu.Multiline = true;
+            this.txtGhiChu.Name = "txtGhiChu";
+            this.txtGhiChu.Size = new System.Drawing.Size(660, 110);
+            this.txtGhiChu.TabIndex = 11;
             // 
-            // txtTenPB
+            // txtDiaChi
             // 
-            this.txtTenPB.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtDiaChi.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTenPB.Location = new System.Drawing.Point(156, 66);
-            this.txtTenPB.Name = "txtTenPB";
-            this.txtTenPB.Size = new System.Drawing.Size(660, 20);
-            this.txtTenPB.TabIndex = 11;
+            this.txtDiaChi.Location = new System.Drawing.Point(156, 173);
+            this.txtDiaChi.Multiline = true;
+            this.txtDiaChi.Name = "txtDiaChi";
+            this.txtDiaChi.Size = new System.Drawing.Size(660, 110);
+            this.txtDiaChi.TabIndex = 11;
             // 
-            // txtMaPB
+            // txtTenKho
             // 
-            this.txtMaPB.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtTenKho.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMaPB.Location = new System.Drawing.Point(156, 34);
-            this.txtMaPB.Name = "txtMaPB";
-            this.txtMaPB.ReadOnly = true;
-            this.txtMaPB.Size = new System.Drawing.Size(135, 20);
-            this.txtMaPB.TabIndex = 9;
+            this.txtTenKho.Location = new System.Drawing.Point(156, 66);
+            this.txtTenKho.Name = "txtTenKho";
+            this.txtTenKho.Size = new System.Drawing.Size(660, 20);
+            this.txtTenKho.TabIndex = 11;
             // 
-            // textBox2
+            // txtMaKho
             // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtMaKho.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.Location = new System.Drawing.Point(156, 302);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(660, 110);
-            this.textBox2.TabIndex = 11;
+            this.txtMaKho.Location = new System.Drawing.Point(156, 34);
+            this.txtMaKho.Name = "txtMaKho";
+            this.txtMaKho.ReadOnly = true;
+            this.txtMaKho.Size = new System.Drawing.Size(135, 20);
+            this.txtMaKho.TabIndex = 9;
             // 
-            // labelX2
-            // 
-            // 
+            // txtIdKho
             // 
             // 
-            this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX2.Location = new System.Drawing.Point(48, 299);
-            this.labelX2.Name = "labelX2";
-            this.labelX2.Size = new System.Drawing.Size(102, 23);
-            this.labelX2.TabIndex = 20;
-            this.labelX2.Text = "Ghi Chú:";
+            // 
+            // 
+            this.txtIdKho.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtIdKho.Location = new System.Drawing.Point(335, 32);
+            this.txtIdKho.Name = "txtIdKho";
+            this.txtIdKho.Size = new System.Drawing.Size(75, 23);
+            this.txtIdKho.TabIndex = 23;
+            this.txtIdKho.Visible = false;
             // 
             // ucKho
             // 
@@ -443,7 +462,7 @@
 
         private System.Windows.Forms.SplitContainer splitContainer1;
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel1;
-        private DevComponents.DotNetBar.Controls.ListViewEx lvPhongBan;
+        private DevComponents.DotNetBar.Controls.ListViewEx lvKho;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
@@ -451,7 +470,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel2;
-        private DevComponents.DotNetBar.Controls.ComboBoxEx comboBoxEx1;
+        private DevComponents.DotNetBar.Controls.ComboBoxEx cboQuanLy;
         private System.Windows.Forms.Panel panel1;
         private DevComponents.DotNetBar.ButtonX btnThoat;
         private DevComponents.DotNetBar.ButtonX btnXoa;
@@ -462,11 +481,12 @@
         private DevComponents.DotNetBar.LabelX labelX4;
         private DevComponents.DotNetBar.LabelX labelX3;
         private DevComponents.DotNetBar.LabelX labelX1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox txtTenPB;
-        private System.Windows.Forms.TextBox txtMaPB;
+        private System.Windows.Forms.TextBox txtSDT;
+        private System.Windows.Forms.TextBox txtDiaChi;
+        private System.Windows.Forms.TextBox txtTenKho;
+        private System.Windows.Forms.TextBox txtMaKho;
         private DevComponents.DotNetBar.LabelX labelX2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtGhiChu;
+        private DevComponents.DotNetBar.LabelX txtIdKho;
     }
 }

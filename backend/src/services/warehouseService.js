@@ -107,6 +107,7 @@ const getListProductsByWarehouse = (pool, warehouseId) => {
             V.Ten,
             V.DonGia,
             V.DonGiaNhap,
+            V.DonViTinh,
             V.IdNhomVatTu,
             N.Ten AS TenNhomVatTu,
             V.IdNhaCungCap,

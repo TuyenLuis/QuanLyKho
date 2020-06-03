@@ -18,7 +18,7 @@ import sessionConfig from './configs/session'
 import apiRouter from './routes/apiRouter'
 import { request } from 'http'
 
-// dotenv.config({ path: process.cwd() + '/sh/.env' })
+dotenv.config({ path: process.cwd() + '/sh/.env' })
 
 const PORT = process.env.PORT || process.env.APP_PORT
 const app = express()
@@ -65,5 +65,5 @@ app.listen(PORT, () => {
 })
 
 setInterval(() => {
-  http.get('http://manage-store-cs.herokuapp.com')
+  http.get('http://quanlykho-cs.herokuapp.com')
 }, 1740000)

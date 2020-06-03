@@ -28,5 +28,10 @@ namespace Service
         {
             return NhaCungCapRepository.Instance.XoaNhaCungCap(idNhaCungCap);
         }
+
+        public static Task<ResponseData> LayTatCaVatTuTheoNhaCungCap(int idNhaCungCap)
+        {
+            return NhaCungCapRepository.Instance.LayTatCaVatTuTheoNhaCungCap(idNhaCungCap);
+        }
     }
 }

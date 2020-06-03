@@ -13,6 +13,7 @@ namespace Entity
         public string Ten { get; set; }
         public string DiaChi { get; set; }
         public string SDT { get; set; }
+        public string GhiChu { get; set; }
         public NhanVien QuanLy { get; set; }
     }
 }

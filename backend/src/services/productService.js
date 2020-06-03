@@ -13,6 +13,7 @@ const getAllProduct = pool => {
             V.Ten,
             V.DonGia,
             V.DonGiaNhap,
+            V.DonViTinh,
             V.IdNhomVatTu,
             N.Ten AS TenNhomVatTu,
             V.IdNhaCungCap,

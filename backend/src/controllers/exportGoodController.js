@@ -27,9 +27,33 @@ const getExportReceiptDetailById = async (req, res) => {
       })
     }
 
+    let dataResponse = {
+      Id: listProduct[0].Id,
+      Ma: listProduct[0].Ma,
+      NgayXuat: listProduct[0].NgayXuat,
+      TongTien: listProduct[0].TongTien,
+      DiaChi: listProduct[0].DiaChi,
+      GhiChu: listProduct[0].GhiChuPhieu,
+      IdNhanVien: listProduct[0].IdNhanVien,
+      TenNhanVien: listProduct[0].TenNhanVien,
+      IdKho: listProduct[0].IdKho,
+      TenKho: listProduct[0].TenKho,
+      DanhSachVatTu: []
+    }
+
+    dataResponse.DanhSachVatTu = listProduct.map(product => ({
+      IdVatTu: product.IdVatTu,
+      TenVatTu: product.TenVatTu,
+      DonGia: product.DonGia,
+      SoLuong: product.SoLuong,
+      ThanhTien: product.ThanhTien,
+      GhiChu: product.GhiChu
+    }))
+
+
     return res.status(200).send({
       message: 'success',
-      data: listProduct
+      data: dataResponse
     })
   } catch (error) {
     return res.status(500).send({ error })

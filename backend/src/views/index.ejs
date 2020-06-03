@@ -1,12 +1,71 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML5>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <title>Dijkstra Simulation</title>
 </head>
-<body>
-  <h1>Hello</h1>
+<body style="padding: 10px; font-size: 14px;">
+  <div>
+    <canvas class="myCanvas" style="border: 1px solid;">
+      <p>Add suitable fallback here.</p>
+    </canvas>
+  </div>
+  <div style="margin-top: 20px;">
+    <div class="row" style="margin: 15px; display: flex; align-items: center;">
+      <div class="col-sm-6">
+        <div style="display: flex;">
+          <input name="numberOfNode" class="form-control" type="number" min="1" max="20" placeholder="Enter number of node">
+          <button id="btnGenNode" style="margin-left: 20px;" class="btn btn-primary">Gennarate</button>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="error-node-num text-danger"></div>
+      </div>
+    </div>
+    <div class="row" style="margin: 15px;">
+      <div class="col-sm-6">
+        <div style="display: flex;">
+          <input name="numberOfLine" class="form-control" type="number" min="1" max="400" placeholder="Enter number of line">
+          <button id="btnGenLine" style="margin-left: 20px;" class="btn btn-primary">Gennarate</button>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="error-line-num text-danger"></div>
+      </div>
+    </div>
+    <div class="row" style="margin: 15px; padding-left: 15px;">
+      <button id="btnClearData" class="btn btn-danger">Clear data</button>
+    </div>
+    <div class="row" style="margin: 15px;">
+      <table id="myTable" border="1" style="margin: 15px;">
+      </table>
+    </div>
+    <div id="findDirection" class="row hide" style="margin: 15px; display: flex; align-items: center;">
+      <div class="col-sm-6" style="display: flex;">
+        <input name="nodeStart" type="text" class="form-control" style="margin: 15px 15px 15px 0;" placeholder="Enter node start">
+        <input name="nodeEnd" type="text" class="form-control" style="margin: 15px" placeholder="Enter node end">
+        <button id="findShortestPath" class="btn btn-success" style="margin: 15px">Find direction</button>
+      </div>
+      <div class="col-sm-6">
+        <div class="error-path text-danger"></div>
+      </div>
+    </div>
+    <div id="result" class="row hide" style="margin: 15px;">
+      <div class="card" style="margin: 15px; font-size: 16px;">
+        <div class="card-body">
+          <h5 class="card-title">Result</h5>
+          <div class="card-text">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/jquery-3.3.1.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="js/app.min.js"></script>
 </body>
 </html>

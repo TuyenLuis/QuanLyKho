@@ -32,7 +32,6 @@ namespace QuanLyKho
         private async void LoadnhanVien()
         {
             var result = await NhanVienService.LayTatCaNhanVien();
-            MessageBox.Show(result.Message.ToString());
             if (result != null && result.Status == Config.CODE_OK)
             {
                 listNhanVien = (List<NhanVien>)result.Data;
@@ -41,8 +40,8 @@ namespace QuanLyKho
                 {
                     ListViewItem listViewItem = new ListViewItem(nhanVien.Ma.ToString());
                     listViewItem.SubItems.Add(nhanVien.Ten);
-                    listViewItem.SubItems.Add(nhanVien.GioiTinh ? "Nữ" : "Nam");
-                    listViewItem.SubItems.Add(nhanVien.NgaySinh.ToString());
+                    listViewItem.SubItems.Add(nhanVien.GioiTinh != null ? (nhanVien.GioiTinh.Value ? "Nữ" : "Nam") : "");
+                    listViewItem.SubItems.Add(nhanVien.NgaySinh.ToShortDateString());
                     listViewItem.SubItems.Add(nhanVien.DiaChi);
                     listViewItem.SubItems.Add(nhanVien.SDT);
                     listViewItem.SubItems.Add(nhanVien.CMND);
@@ -79,8 +78,18 @@ namespace QuanLyKho
                 txtManhanVien.Text = lvItem.SubItems[0].Text;
                 txtIdNhanVien.Text = lvItem.SubItems[0].Tag.ToString();
                 txtTennhanVien.Text = lvItem.SubItems[1].Text;
-                if (lvItem.SubItems[2].Text == "Nam") rdNam.Checked = true;
-                if (lvItem.SubItems[2].Text == "Nữ") rdNu.Checked = true;
+                if (lvItem.SubItems[2].Text == "Nam")
+                {
+                    rdNam.Checked = true;
+                }
+                else if (lvItem.SubItems[2].Text == "Nữ")
+                {
+                    rdNu.Checked = true;
+                } 
+                else
+                {
+                    rdNam.Checked = rdNu.Checked = false;
+                }
                 dateTimeInput1.Value = DateTime.Parse(lvItem.SubItems[3].Text);
                 txtDiaChi.Text = lvItem.SubItems[4].Text;
                 txtCMND.Text = lvItem.SubItems[5].Text;
@@ -162,7 +171,7 @@ namespace QuanLyKho
         {
             if (lvNhanVien.SelectedItems.Count == 0)
             {
-                MessageBoxEx.Show("Bạn phải chọn 1 nhà cung cấp để xóa!", "Thông báo");
+                MessageBoxEx.Show("Bạn phải chọn 1 nhân viên để xóa!", "Thông báo");
             }
             else
             {
@@ -196,7 +205,7 @@ namespace QuanLyKho
         {
             foreach (TabItem tabItem in frmMain.FrmMain.TabContainer.Tabs)
             {
-                if (tabItem.Name == "tabnhanVien")
+                if (tabItem.Name == "tabNhanVien")
                 {
                     frmMain.FrmMain.TabContainer.Tabs.Remove(tabItem);
                     frmMain.FrmMain.TabContainer.Controls.Remove(tabItem.AttachedControl);

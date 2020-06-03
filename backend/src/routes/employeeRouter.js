@@ -8,9 +8,9 @@ import { checkConnectDB } from './../middlewares/connectDbMiddleware'
 const employeeRouter = express.Router()
 
 
-employeeRouter.get('/list-all-employee', checkConnectDB, isAuth, isAdmin, employeeController.getAllEmployee)
+employeeRouter.get('/list-all-employee', checkConnectDB, isAuth, employeeController.getAllEmployee)
 
-employeeRouter.get('/list-employee', checkConnectDB, isAuth, isAdmin, employeeController.getListEmployee)
+employeeRouter.get('/list-employee', checkConnectDB, isAuth, employeeController.getListEmployee)
 
 employeeRouter.post('/add-new-employee', checkConnectDB, isAuth, isAdmin, employeeController.addNewEmployee)
 

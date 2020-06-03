@@ -33,7 +33,7 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.Thoat_toolStripButton = new System.Windows.Forms.ToolStripButton();
             this.LamTuoi_toolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.listView = new DevComponents.DotNetBar.Controls.ListViewEx();
+            this.lvNhapKho = new DevComponents.DotNetBar.Controls.ListViewEx();
             this.colMANV = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colHOTEN = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colNGAYSINH = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -75,23 +75,24 @@
             this.Thoat_toolStripButton.Name = "Thoat_toolStripButton";
             this.Thoat_toolStripButton.Size = new System.Drawing.Size(61, 22);
             this.Thoat_toolStripButton.Text = "Thoát";
+            this.Thoat_toolStripButton.Click += new System.EventHandler(this.Thoat_toolStripButton_Click);
             // 
             // LamTuoi_toolStripButton
             // 
             this.LamTuoi_toolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("LamTuoi_toolStripButton.Image")));
             this.LamTuoi_toolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.LamTuoi_toolStripButton.Name = "LamTuoi_toolStripButton";
-            this.LamTuoi_toolStripButton.Size = new System.Drawing.Size(80, 22);
-            this.LamTuoi_toolStripButton.Text = "Cập Nhật";
+            this.LamTuoi_toolStripButton.Size = new System.Drawing.Size(86, 22);
+            this.LamTuoi_toolStripButton.Text = "Thêm mới";
             // 
-            // listView
-            // 
-            // 
+            // lvNhapKho
             // 
             // 
-            this.listView.Border.Class = "ListViewBorder";
-            this.listView.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.listView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            // 
+            // 
+            this.lvNhapKho.Border.Class = "ListViewBorder";
+            this.lvNhapKho.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.lvNhapKho.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.colMANV,
             this.colHOTEN,
             this.colNGAYSINH,
@@ -99,17 +100,18 @@
             this.colCMND,
             this.colDIENTHOAI,
             this.columnHeader1});
-            this.listView.DisabledBackColor = System.Drawing.Color.Empty;
-            this.listView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listView.FullRowSelect = true;
-            this.listView.GridLines = true;
-            this.listView.HideSelection = false;
-            this.listView.Location = new System.Drawing.Point(0, 170);
-            this.listView.Name = "listView";
-            this.listView.Size = new System.Drawing.Size(1359, 581);
-            this.listView.TabIndex = 73;
-            this.listView.UseCompatibleStateImageBehavior = false;
-            this.listView.View = System.Windows.Forms.View.Details;
+            this.lvNhapKho.DisabledBackColor = System.Drawing.Color.Empty;
+            this.lvNhapKho.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lvNhapKho.FullRowSelect = true;
+            this.lvNhapKho.GridLines = true;
+            this.lvNhapKho.HideSelection = false;
+            this.lvNhapKho.Location = new System.Drawing.Point(0, 170);
+            this.lvNhapKho.Name = "lvNhapKho";
+            this.lvNhapKho.Size = new System.Drawing.Size(1359, 581);
+            this.lvNhapKho.TabIndex = 73;
+            this.lvNhapKho.UseCompatibleStateImageBehavior = false;
+            this.lvNhapKho.View = System.Windows.Forms.View.Details;
+            this.lvNhapKho.DoubleClick += new System.EventHandler(this.lvNhapKho_DoubleClick);
             // 
             // colMANV
             // 
@@ -152,7 +154,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.listView);
+            this.Controls.Add(this.lvNhapKho);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.label1);
             this.Name = "ucNhapKho";
@@ -170,7 +172,7 @@
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton Thoat_toolStripButton;
         private System.Windows.Forms.ToolStripButton LamTuoi_toolStripButton;
-        public DevComponents.DotNetBar.Controls.ListViewEx listView;
+        public DevComponents.DotNetBar.Controls.ListViewEx lvNhapKho;
         private System.Windows.Forms.ColumnHeader colMANV;
         private System.Windows.Forms.ColumnHeader colHOTEN;
         private System.Windows.Forms.ColumnHeader colNGAYSINH;

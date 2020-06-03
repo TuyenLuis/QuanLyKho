@@ -38,16 +38,30 @@ const getImportReceiptDetailById = (pool, receiptId) => {
       let receiptResult = await pool.request()
         .input('Id', sql.Int, receiptId)
         .query(`
-          SELECT 
-            C.IdVatTu,
-            V.Ten AS TenVatTu,
-            C.DonGia,
-            C.SoLuong,
-            C.ThanhTien,
-            C.GhiChu
-          FROM dbo.ChiTietNhapKho C
-          INNER JOIN dbo.VatTu V ON V.Id = C.IdVatTu
-          WHERE C.IdNhapKho = @Id
+          SELECT  N.Id ,
+                  N.Ma ,
+                  N.NgayNhap ,
+                  N.TongTien ,
+                  N.GhiChu AS GhiChuPhieu ,
+                  N.IdNhanVien ,
+                  NV.Ten AS TenNhanVien ,
+                  N.IdNhaCungCap ,
+                  NCC.Ten AS TenNhaCungCap ,
+                  N.IdKho ,
+                  K.Ten AS TenKho ,
+                  C.IdVatTu ,
+                  V.Ten AS TenVatTu ,
+                  C.DonGia ,
+                  C.SoLuong ,
+                  C.ThanhTien ,
+                  C.GhiChu
+          FROM    dbo.ChiTietNhapKho C
+                  INNER JOIN dbo.VatTu V ON V.Id = C.IdVatTu
+                  INNER JOIN dbo.NhapKho N ON N.Id = C.IdNhapKho
+                  INNER JOIN dbo.NhanVien NV ON NV.Id = N.IdNhanVien
+                  INNER JOIN dbo.NhaCungCap NCC ON NCC.Id = N.IdNhaCungCap
+                  INNER JOIN dbo.Kho K ON K.Id = N.IdKho
+          WHERE   C.IdNhapKho = @Id
         `)
 
         return resolve(receiptResult.recordset)

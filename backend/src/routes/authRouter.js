@@ -12,8 +12,8 @@ authRouter.post('/login', checkConnectDB, authController.login)
 
 authRouter.post('/refresh-token', checkConnectDB, authController.refreshToken)
 
-authRouter.post('/register', checkConnectDB, authValidation.register, authController.register)
+authRouter.post('/register', checkConnectDB, isAuth, isAdmin, authValidation.register, authController.register)
 
-authRouter.put('/change-password', checkConnectDB, isAuth, isAdmin, authController.changePassword)
+authRouter.put('/change-password', checkConnectDB, isAuth, authController.changePassword)
 
 module.exports = authRouter

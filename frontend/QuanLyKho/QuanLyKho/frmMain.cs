@@ -201,6 +201,7 @@ namespace QuanLyKho
                 buttonItemMenuChuyenTaiKhoanKhac.Enabled = true;
                 buttonItemMenuDoiMatKhau.Enabled = true;
                 btnItemChuyenSangTaiKhoanKhac.Enabled = true;
+                btnItemPhanQuyenNguoiDung.Enabled = true;
                 btnItemDoiMatKhau.Enabled = true;
                 btnItemHoSoNhanVien.Enabled = true;
                 btnItemNhaCungCap.Enabled = true;
@@ -214,9 +215,10 @@ namespace QuanLyKho
             else if (UserResponse.Roles.Name == Config.ROLE_EMPLOYEE)
             {
                 buttonItemMenuChuyenTaiKhoanKhac.Enabled = true;
-                buttonItemMenuDoiMatKhau.Enabled = false;
+                buttonItemMenuDoiMatKhau.Enabled = true;
+                btnItemPhanQuyenNguoiDung.Enabled = false;
                 btnItemChuyenSangTaiKhoanKhac.Enabled = true;
-                btnItemDoiMatKhau.Enabled = false;
+                btnItemDoiMatKhau.Enabled = true;
                 btnItemHoSoNhanVien.Enabled = false;
                 btnItemNhaCungCap.Enabled = true;
                 btnItemVatTu.Enabled = true;
@@ -233,6 +235,7 @@ namespace QuanLyKho
             buttonItemMenuChuyenTaiKhoanKhac.Enabled = false;
             buttonItemMenuDoiMatKhau.Enabled = false;
             btnItemChuyenSangTaiKhoanKhac.Enabled = false;
+            btnItemPhanQuyenNguoiDung.Enabled = false;
             btnItemDoiMatKhau.Enabled = false;
             btnItemHoSoNhanVien.Enabled = false;
             btnItemNhaCungCap.Enabled = false;

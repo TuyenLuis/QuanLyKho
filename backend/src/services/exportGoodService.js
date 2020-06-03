@@ -36,16 +36,28 @@ const getExportReceiptDetailById = (pool, receiptId) => {
       let receiptResult = await pool.request()
         .input('Id', sql.Int, receiptId)
         .query(`
-          SELECT 
-            C.IdVatTu,
-            V.Ten AS TenVatTu,
-            C.DonGia,
-            C.SoLuong,
-            C.ThanhTien,
-            C.GhiChu
-          FROM dbo.ChiTietXuatKho C
-          INNER JOIN dbo.VatTu V ON V.Id = C.IdVatTu
-          WHERE C.IdXuatKho = @Id
+          SELECT  X.Id ,
+                  X.Ma ,
+                  X.NgayXuat ,
+                  X.DiaChi ,
+                  X.TongTien ,
+                  X.GhiChu AS GhiChuPhieu ,
+                  X.IdNhanVien ,
+                  NV.Ten AS TenNhanVien ,
+                  X.IdKho ,
+                  K.Ten AS TenKho ,
+                  C.IdVatTu ,
+                  V.Ten AS TenVatTu ,
+                  C.DonGia ,
+                  C.SoLuong ,
+                  C.ThanhTien ,
+                  C.GhiChu
+          FROM    dbo.ChiTietXuatKho C
+                  INNER JOIN dbo.VatTu V ON V.Id = C.IdVatTu
+                  INNER JOIN dbo.XuatKho X ON X.Id = C.IdXuatKho
+                  INNER JOIN dbo.NhanVien NV ON NV.Id = X.IdNhanVien
+                  INNER JOIN dbo.Kho K ON K.Id = X.IdKho
+          WHERE   C.IdXuatKho = @Id
         `)
 
         return resolve(receiptResult.recordset)

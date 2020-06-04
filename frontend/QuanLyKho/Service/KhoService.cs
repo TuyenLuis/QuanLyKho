@@ -33,5 +33,9 @@ namespace Service
         {
             return KhoRepository.Instance.LayTatCaVatTuTheoKho(khoId);
         }
+        public static Task<ResponseData> LayTatCaVatTuTheoKhoDgv(int khoId)
+        {
+            return KhoRepository.Instance.LayTatCaVatTuTheoKhoDgv(khoId);
+        }
     }
 }

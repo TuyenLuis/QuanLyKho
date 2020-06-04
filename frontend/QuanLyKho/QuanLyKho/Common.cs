@@ -19,5 +19,6 @@ namespace QuanLyKho
         public static ucVatTu ucVatTu = null;
         public static ucXuatKho ucXuatKho = null;
         public static frmNhapKho frmNhapKho = null;
+        public static frmXuatKho frmXuatKho = null;
     }
 }

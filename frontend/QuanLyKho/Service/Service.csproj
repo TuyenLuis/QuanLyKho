@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="XuatKhoService.cs" />
     <Compile Include="NhapKhoService.cs" />
     <Compile Include="KhoService.cs" />
     <Compile Include="NhaCungCapService.cs" />

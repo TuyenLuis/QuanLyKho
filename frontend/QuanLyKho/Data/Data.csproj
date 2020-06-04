@@ -80,6 +80,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="XuatKhoRepository .cs" />
     <Compile Include="NhapKhoRepository.cs" />
     <Compile Include="KhoRepository.cs" />
     <Compile Include="NhaCungCapRepository.cs" />

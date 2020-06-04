@@ -57,6 +57,12 @@
     <Compile Include="frmDangNhap.Designer.cs">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDoiMatKhau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDoiMatKhau.Designer.cs">
+      <DependentUpon>frmDoiMatKhau.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +113,12 @@
     <Compile Include="ucNhomVatTu.Designer.cs">
       <DependentUpon>ucNhomVatTu.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucPhanQuyen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucPhanQuyen.Designer.cs">
+      <DependentUpon>ucPhanQuyen.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucVatTu.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -121,6 +133,9 @@
     </Compile>
     <EmbeddedResource Include="frmDangNhap.resx">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDoiMatKhau.resx">
+      <DependentUpon>frmDoiMatKhau.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
@@ -156,6 +171,9 @@
     <EmbeddedResource Include="ucNhomVatTu.resx">
       <DependentUpon>ucNhomVatTu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ucPhanQuyen.resx">
+      <DependentUpon>ucPhanQuyen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ucVatTu.resx">
       <DependentUpon>ucVatTu.cs</DependentUpon>
     </EmbeddedResource>
@@ -189,6 +207,15 @@
       <Project>{c7e8a84e-0727-4c13-bd16-f6450985356e}</Project>
       <Name>Service</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mi_pc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bg.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

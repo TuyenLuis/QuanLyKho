@@ -11,6 +11,7 @@ using DevComponents.DotNetBar;
 using Entity;
 using Service;
 using Constant;
+using System.Threading;
 
 namespace QuanLyKho
 {
@@ -34,6 +35,7 @@ namespace QuanLyKho
             LoadNhanVien();
             LoadKho();
             LoadNhaCungCap();
+            Thread.Sleep(100);
             if (ucNhapKho.idPhieuNhap != 0)
             {
                 LoadChiTietPhieuNhap();

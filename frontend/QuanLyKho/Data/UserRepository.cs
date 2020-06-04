@@ -103,5 +103,45 @@ namespace Data
                 return null;
             }
         }
+
+        public async Task<ResponseData> DoiMatKhau(string oldPassword, string newPassword, string confirmPassword)
+        {
+            try
+            {
+                string url = string.Format("{0}/api/auth/change-password", Config.HOST);
+                var client = new RestSharp.RestClient(url);
+                var request = new RestSharp.RestRequest(Method.PUT);
+                request.AddHeader("content-type", "application/json; charset=utf-8");
+                request.AddHeader("x-access-token", UserResponse.AccessToken);
+                request.AddJsonBody(new
+                {
+                    oldPassword = oldPassword,
+                    newPassword = newPassword,
+                    confirmPassword = confirmPassword,
+                    employeeId = UserResponse.NhanVien.Id
+                });
+                var response = await client.ExecuteTaskAsync(request);
+                var responseParse = Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(response.Content);
+                if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    var message = (string)responseParse["message"];
+                    return new ResponseData()
+                    {
+                        Status = Config.CODE_OK,
+                        Data = message,
+                        Message = ""
+                    };
+                }
+                else
+                {
+                    return Util.GenerateErrorResponse(response, responseParse);
+                }
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
+        }
     }
 }

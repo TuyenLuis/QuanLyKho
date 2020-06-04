@@ -152,6 +152,15 @@ namespace QuanLyKho
                     Common.ucChuyenKho.Dock = DockStyle.Fill;
                     Common.ucChuyenKho.BringToFront();
                     break;
+                case "tabNguoiDung":
+                    if (Common.ucPhanQuyen == null || Common.ucPhanQuyen.IsDisposed)
+                    {
+                        Common.ucPhanQuyen = new ucPhanQuyen();
+                    }
+                    panel.Controls.Add(Common.ucPhanQuyen);
+                    Common.ucPhanQuyen.Dock = DockStyle.Fill;
+                    Common.ucPhanQuyen.BringToFront();
+                    break;
                 default:
                     MessageBoxEx.Show("Opps!!!");
                     break;
@@ -185,7 +194,6 @@ namespace QuanLyKho
             if (UserResponse.Id != 0)
             {
                 toolHienThi.Text = "Xin chào " + UserResponse.NhanVien.Ten + ". Chúc bạn 1 ngày làm việc tốt lành!";
-                buttonItemDangNhapVoiQuyen.Text = "Xin chào " + UserResponse.NhanVien.Ten;
                 CheckPhanQuyen();
             }
             else
@@ -201,7 +209,7 @@ namespace QuanLyKho
                 buttonItemMenuChuyenTaiKhoanKhac.Enabled = true;
                 buttonItemMenuDoiMatKhau.Enabled = true;
                 btnItemChuyenSangTaiKhoanKhac.Enabled = true;
-                btnItemPhanQuyenNguoiDung.Enabled = true;
+                // btnItemPhanQuyenNguoiDung.Enabled = true;
                 btnItemDoiMatKhau.Enabled = true;
                 btnItemHoSoNhanVien.Enabled = true;
                 btnItemNhaCungCap.Enabled = true;
@@ -210,13 +218,13 @@ namespace QuanLyKho
                 btnItemKho.Enabled = true;
                 btnItemNhapKho.Enabled = true;
                 btnItemXuatKho.Enabled = true;
-                btnItemChuyenKho.Enabled = true;
+                // btnItemChuyenKho.Enabled = true;
             }
             else if (UserResponse.Roles.Name == Config.ROLE_EMPLOYEE)
             {
                 buttonItemMenuChuyenTaiKhoanKhac.Enabled = true;
                 buttonItemMenuDoiMatKhau.Enabled = true;
-                btnItemPhanQuyenNguoiDung.Enabled = false;
+                // btnItemPhanQuyenNguoiDung.Enabled = false;
                 btnItemChuyenSangTaiKhoanKhac.Enabled = true;
                 btnItemDoiMatKhau.Enabled = true;
                 btnItemHoSoNhanVien.Enabled = false;
@@ -226,7 +234,7 @@ namespace QuanLyKho
                 btnItemKho.Enabled = false;
                 btnItemNhapKho.Enabled = true;
                 btnItemXuatKho.Enabled = true;
-                btnItemChuyenKho.Enabled = true;
+                // btnItemChuyenKho.Enabled = true;
             }
         }
 
@@ -235,7 +243,7 @@ namespace QuanLyKho
             buttonItemMenuChuyenTaiKhoanKhac.Enabled = false;
             buttonItemMenuDoiMatKhau.Enabled = false;
             btnItemChuyenSangTaiKhoanKhac.Enabled = false;
-            btnItemPhanQuyenNguoiDung.Enabled = false;
+            // btnItemPhanQuyenNguoiDung.Enabled = false;
             btnItemDoiMatKhau.Enabled = false;
             btnItemHoSoNhanVien.Enabled = false;
             btnItemNhaCungCap.Enabled = false;
@@ -244,7 +252,26 @@ namespace QuanLyKho
             btnItemKho.Enabled = false;
             btnItemNhapKho.Enabled = false;
             btnItemXuatKho.Enabled = false;
-            btnItemChuyenKho.Enabled = false;
+            // btnItemChuyenKho.Enabled = false;
+        }
+
+        private void btnItemChuyenSangTaiKhoanKhac_Click(object sender, EventArgs e)
+        {
+            toolHienThi.Text = "Chương trình đã đăng xuất....Bạn phải đăng nhập bằng 1 tài khoản khác.";
+            UserResponse.Id = 0;
+            UserResponse.Username = "";
+            UserResponse.Password = "";
+            UserResponse.Roles = null;
+            UserResponse.NhanVien = null;
+            UserResponse.AccessToken = "";
+            UserResponse.RefreshToken = "";
+            DisableControl();
+        }
+
+        private void btnItemDoiMatKhau_Click(object sender, EventArgs e)
+        {
+            Common.frmDoiMatKhau = new frmDoiMatKhau();
+            Common.frmDoiMatKhau.ShowDialog();
         }
     }
 }

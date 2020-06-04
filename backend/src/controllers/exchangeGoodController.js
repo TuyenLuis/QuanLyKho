@@ -85,7 +85,10 @@ const addNewExchangeGoodReceipt = async (req, res) => {
 
     return res.status(200).send({
       message: transSuccess.add_exchange_good_receipt,
-      data: { totalPrice: total[total.length - 1] }
+      data: {
+        totalPrice: total[total.length - 1],
+        receiptId
+      }
     })
   } catch (error) {
     return res.status(500).send({ error })

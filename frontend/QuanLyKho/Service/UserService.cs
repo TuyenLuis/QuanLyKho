@@ -13,5 +13,10 @@ namespace Service
         {
             return  UserRepository.Instance.DangNhap(username, password);
         }
+
+        public static Task<ResponseData> DoiMatKhau(string oldPassword, string newPassword, string confirmPassword)
+        {
+            return UserRepository.Instance.DoiMatKhau(oldPassword, newPassword, confirmPassword);
+        }
     }
 }

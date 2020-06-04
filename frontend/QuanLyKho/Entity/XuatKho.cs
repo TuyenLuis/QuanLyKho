@@ -17,4 +17,10 @@ namespace Entity
         public string GhiChu { get; set; }
         public Kho Kho { get; set; }
     }
+
+    public class InforXuatKho
+    {
+        public int receiptId { get; set; }
+        public decimal totalPrice { get; set; }
+    }
 }

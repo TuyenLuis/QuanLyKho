@@ -21,5 +21,6 @@ namespace QuanLyKho
         public static frmNhapKho frmNhapKho = null;
         public static frmDoiMatKhau frmDoiMatKhau = null;
         public static ucPhanQuyen ucPhanQuyen = null;
+        public static frmXuatKho frmXuatKho = null;
     }
 }

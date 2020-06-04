@@ -15,7 +15,6 @@ namespace Entity
         public decimal DonGiaNhap { get; set; }
         public string DonViTinh { get; set; }
         public int SoLuong { get; set; }
-        public string DonViTinh { get; set; }
         public bool IsActive { get; set; }
         public string IdNhomVatTu { get; set; }
         public string TenNhomVatTu { get; set; }
@@ -35,6 +34,7 @@ namespace Entity
         public string DonViTinh { get; set; }
         public decimal DonGia { get; set; }
         public int SoLuongHienTai { get; set; }
-        public int SoLuongNhapXuat { get; set; }
+        public int SoLuong { get; set; }
+        public string GhiChu { get; set; }
     }
 }

@@ -151,5 +151,94 @@ namespace Data
                 return null;
             }
         }
+
+
+        public async Task<ResponseData> ThemMoiPhieuNhapKho(NhapKho phieuNhap, List<VatTuNhapXuat> listVatTu)
+        {
+            try
+            {
+                string url = string.Format("{0}/api/import/add-new-receipt", Config.HOST);
+                var client = new RestSharp.RestClient(url);
+                var request = new RestSharp.RestRequest(Method.POST);
+                request.AddHeader("content-type", "application/json; charset=utf-8");
+                request.AddHeader("x-access-token", UserResponse.AccessToken);
+                request.AddJsonBody(new
+                {
+                    Ma = phieuNhap.Ma,
+                    NgayNhap = phieuNhap.NgayNhap,
+                    IdNhaCungCap = phieuNhap.NhaCungCap.Id,
+                    IdNhanVien = phieuNhap.NhanVien.Id,
+                    IdKho = phieuNhap.Kho.Id,
+                    GhiChu = phieuNhap.GhiChu,
+                    listProduct = listVatTu.Select(x => new { x.Id, x.SoLuong, x.GhiChu }).ToList()
+                });
+
+                var response = await client.ExecuteTaskAsync(request);
+                var responseParse = Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(response.Content);
+                if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    var data = responseParse["data"];
+                    var totalPrice = (decimal)data["totalPrice"];
+                    return new ResponseData()
+                    {
+                        Status = Config.CODE_OK,
+                        Data = totalPrice,
+                        Message = ""
+                    };
+                }
+                else
+                {
+                    return Util.GenerateErrorResponse(response, responseParse);
+                }
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
+        public async Task<ResponseData> CapNhatPhieuNhapKho(NhapKho phieuNhap, List<VatTuNhapXuat> listVatTu)
+        {
+            try
+            {
+                string url = string.Format("{0}/api/import/update-receipt", Config.HOST);
+                var client = new RestSharp.RestClient(url);
+                var request = new RestSharp.RestRequest(Method.PUT);
+                request.AddHeader("content-type", "application/json; charset=utf-8");
+                request.AddHeader("x-access-token", UserResponse.AccessToken);
+                request.AddJsonBody(new
+                {
+                    Ma = phieuNhap.Ma,
+                    NgayNhap = phieuNhap.NgayNhap,
+                    IdNhaCungCap = phieuNhap.NhaCungCap.Id,
+                    IdNhanVien = phieuNhap.NhanVien.Id,
+                    Id = phieuNhap.Id,
+                    GhiChu = phieuNhap.GhiChu,
+                    listProduct = listVatTu.Select(x => new { x.Id, x.SoLuong, x.GhiChu }).ToList()
+                });
+
+                var response = await client.ExecuteTaskAsync(request);
+                var responseParse = Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(response.Content);
+                if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    var data = responseParse["data"];
+                    var totalPrice = (decimal)data["totalPrice"];
+                    return new ResponseData()
+                    {
+                        Status = Config.CODE_OK,
+                        Data = totalPrice,
+                        Message = ""
+                    };
+                }
+                else
+                {
+                    return Util.GenerateErrorResponse(response, responseParse);
+                }
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
     }
 }

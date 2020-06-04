@@ -19,5 +19,15 @@ namespace Service
         {
             return NhapKhoRepository.Instance.LayChiTietPhieuNhapKho(phieuNhapId);
         }
+
+        public static Task<ResponseData> ThemMoiPhieuNhapKho(NhapKho phieuNhap, List<VatTuNhapXuat> listVatTu)
+        {
+            return NhapKhoRepository.Instance.ThemMoiPhieuNhapKho(phieuNhap, listVatTu);
+        }
+
+        public static Task<ResponseData> CapNhatPhieuNhapKho(NhapKho phieuNhap, List<VatTuNhapXuat> listVatTu)
+        {
+            return NhapKhoRepository.Instance.CapNhatPhieuNhapKho(phieuNhap, listVatTu);
+        }
     }
 }

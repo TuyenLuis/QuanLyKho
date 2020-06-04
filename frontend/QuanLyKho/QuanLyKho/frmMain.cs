@@ -170,11 +170,21 @@ namespace QuanLyKho
         private void btnItemDangNhap_Click(object sender, EventArgs e)
         {
             RemoveAllTabItems();
-            if (Common.frmDangNhap == null || Common.frmDangNhap.IsDisposed)
-            {
-                Common.frmDangNhap = new frmDangNhap();
-            }
+            //if (Common.frmDangNhap == null || Common.frmDangNhap.IsDisposed)
+            //{
+            //    Common.frmDangNhap = new frmDangNhap();
+            //}
+            Common.frmDangNhap = new frmDangNhap();
             Common.frmDangNhap.ShowDialog();
+            if (UserResponse.Id != 0)
+            {
+                toolHienThi.Text = "Xin chào " + UserResponse.NhanVien.Ten + ". Chúc bạn 1 ngày làm việc tốt lành!";
+                CheckPhanQuyen();
+            }
+            else
+            {
+                DisableControl();
+            }
         }
 
         private void RemoveAllTabItems()
@@ -209,6 +219,8 @@ namespace QuanLyKho
                 buttonItemMenuChuyenTaiKhoanKhac.Enabled = true;
                 buttonItemMenuDoiMatKhau.Enabled = true;
                 btnItemChuyenSangTaiKhoanKhac.Enabled = true;
+                buttonItemMenuDangNhap.Enabled = false;
+                btnItemDangNhap.Enabled = false;
                 // btnItemPhanQuyenNguoiDung.Enabled = true;
                 btnItemDoiMatKhau.Enabled = true;
                 btnItemHoSoNhanVien.Enabled = true;
@@ -226,7 +238,9 @@ namespace QuanLyKho
                 buttonItemMenuDoiMatKhau.Enabled = true;
                 // btnItemPhanQuyenNguoiDung.Enabled = false;
                 btnItemChuyenSangTaiKhoanKhac.Enabled = true;
+                buttonItemMenuDangNhap.Enabled = false;
                 btnItemDoiMatKhau.Enabled = true;
+                btnItemDangNhap.Enabled = false;
                 btnItemHoSoNhanVien.Enabled = false;
                 btnItemNhaCungCap.Enabled = true;
                 btnItemVatTu.Enabled = true;
@@ -266,6 +280,8 @@ namespace QuanLyKho
             UserResponse.AccessToken = "";
             UserResponse.RefreshToken = "";
             DisableControl();
+            btnItemDangNhap.Enabled = true;
+            buttonItemMenuDangNhap.Enabled = true;
         }
 
         private void btnItemDoiMatKhau_Click(object sender, EventArgs e)

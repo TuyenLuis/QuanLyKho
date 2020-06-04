@@ -75,5 +75,13 @@ namespace QuanLyKho
             Common.frmNhapKho.ShowDialog();
             LoadListNhapKho();
         }
+
+        private void LamTuoi_toolStripButton_Click(object sender, EventArgs e)
+        {
+            idPhieuNhap = 0;
+            Common.frmNhapKho = new frmNhapKho();
+            Common.frmNhapKho.ShowDialog();
+            LoadListNhapKho();
+        }
     }
 }

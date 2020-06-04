@@ -84,6 +84,7 @@
             this.LamTuoi_toolStripButton.Name = "LamTuoi_toolStripButton";
             this.LamTuoi_toolStripButton.Size = new System.Drawing.Size(86, 22);
             this.LamTuoi_toolStripButton.Text = "Thêm mới";
+            this.LamTuoi_toolStripButton.Click += new System.EventHandler(this.LamTuoi_toolStripButton_Click);
             // 
             // lvNhapKho
             // 

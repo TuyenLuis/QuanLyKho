@@ -34,7 +34,10 @@ namespace QuanLyKho
             LoadNhanVien();
             LoadKho();
             LoadNhaCungCap();
-            LoadChiTietPhieuNhap();
+            if (ucNhapKho.idPhieuNhap != 0)
+            {
+                LoadChiTietPhieuNhap();
+            }
             DisabledControl();
         }
 
@@ -105,6 +108,11 @@ namespace QuanLyKho
                 cboNhaCungCap.DisplayMember = "Ten";
                 cboNhaCungCap.ValueMember = "Id";
                 isLoadingNhaCungCapDone = true;
+                if (ucNhapKho.idPhieuNhap == 0)
+                {
+                    LoadDanhSachVatTu(listNhaCungCap[0].Id);
+                    dtpNgayNhap.Value = DateTime.Now;
+                }
             }
         }
 
@@ -238,7 +246,7 @@ namespace QuanLyKho
                 if (result != null && result.Status == Config.CODE_OK)
                 {
                     MessageBoxEx.Show("Cập nhật phiếu nhập kho thành công", "Thông báo");
-                    txtTongTien.Text = (string)result.Data;
+                    txtTongTien.Text = ((decimal)result.Data).ToString();
                     LoadDanhSachVatTu(nhapKho.NhaCungCap.Id);
                 }
                 else
@@ -261,12 +269,12 @@ namespace QuanLyKho
             }
             else
             {
-                // Caal add new
+                // Call add new
                 var result = await NhapKhoService.ThemMoiPhieuNhapKho(nhapKho, listVatTu);
                 if (result != null && result.Status == Config.CODE_OK)
                 {
                     MessageBoxEx.Show("Thêm mới phiếu nhập kho thành công", "Thông báo");
-                    txtTongTien.Text = (string)result.Data;
+                    txtTongTien.Text = ((decimal)result.Data).ToString();
                     LoadDanhSachVatTu(nhapKho.NhaCungCap.Id);
                 }
                 else

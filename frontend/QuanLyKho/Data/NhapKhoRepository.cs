@@ -178,11 +178,11 @@ namespace Data
                 if (response.StatusCode == System.Net.HttpStatusCode.OK)
                 {
                     var data = responseParse["data"];
-                    var totalPrice = (decimal)data["totalPrice"];
+                    InforNhapKho inforNhapKho = Newtonsoft.Json.JsonConvert.DeserializeObject<InforNhapKho>(data.ToString());
                     return new ResponseData()
                     {
                         Status = Config.CODE_OK,
-                        Data = totalPrice,
+                        Data = inforNhapKho,
                         Message = ""
                     };
                 }

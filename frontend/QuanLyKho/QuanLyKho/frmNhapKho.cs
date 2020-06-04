@@ -38,7 +38,7 @@ namespace QuanLyKho
             Thread.Sleep(100);
             if (ucNhapKho.idPhieuNhap != 0)
             {
-                LoadChiTietPhieuNhap();
+                LoadChiTietPhieuNhap(ucNhapKho.idPhieuNhap);
             }
             DisabledControl();
         }
@@ -142,9 +142,9 @@ namespace QuanLyKho
             }
         }
 
-        private async void LoadChiTietPhieuNhap()
+        private async void LoadChiTietPhieuNhap(int idPhieuNhap)
         {
-            var result = await NhapKhoService.LayChiTietPhieuNhapKho(ucNhapKho.idPhieuNhap);
+            var result = await NhapKhoService.LayChiTietPhieuNhapKho(idPhieuNhap);
             if (result != null && result.Status == Config.CODE_OK)
             {
                 listChiTietNhapKho = (List<ChiTietNhapKho>)result.Data;
@@ -249,6 +249,8 @@ namespace QuanLyKho
                 {
                     MessageBoxEx.Show("Cập nhật phiếu nhập kho thành công", "Thông báo");
                     txtTongTien.Text = ((decimal)result.Data).ToString();
+
+                    LoadChiTietPhieuNhap(ucNhapKho.idPhieuNhap);
                     LoadDanhSachVatTu(nhapKho.NhaCungCap.Id);
                 }
                 else
@@ -276,8 +278,11 @@ namespace QuanLyKho
                 if (result != null && result.Status == Config.CODE_OK)
                 {
                     MessageBoxEx.Show("Thêm mới phiếu nhập kho thành công", "Thông báo");
-                    txtTongTien.Text = ((decimal)result.Data).ToString();
+                    InforNhapKho infor = (InforNhapKho)result.Data;
+                    txtTongTien.Text = ((decimal)infor.totalPrice).ToString();
+                    LoadChiTietPhieuNhap(infor.receiptId);
                     LoadDanhSachVatTu(nhapKho.NhaCungCap.Id);
+                    ucNhapKho.idPhieuNhap = infor.receiptId;
                 }
                 else
                 {

@@ -8,6 +8,9 @@ namespace QuanLyKho
 {
     public class Common
     {
+        public static int Test {get ; set;}
+
+
         public static frmMain frmMain = null;
         public static frmDangNhap frmDangNhap = null;
         public static ucChuyenKho ucChuyenKho = null;

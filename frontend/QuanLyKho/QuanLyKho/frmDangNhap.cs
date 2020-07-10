@@ -15,6 +15,7 @@ namespace QuanLyKho
 {
     public partial class frmDangNhap : Form
     {
+        public int test = 0;
         public frmDangNhap()
         {
             InitializeComponent();
